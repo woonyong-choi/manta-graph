@@ -20,4 +20,4 @@ Linked Graph Navigator remains a read-only, current-note navigator over authored
 - A second relationship store, automatic link generation, or saved graph layouts.
 - Remote AI, telemetry, accounts, or network services.
 
-Use [Issues](https://github.com/woonyong-kr/linked-graph/issues/new/choose) for reproducible bugs and use cases. Broader questions belong in [Discussions](https://github.com/woonyong-kr/linked-graph/discussions).
+Use [Issues](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/issues/new/choose) for reproducible bugs and use cases. Broader questions belong in [Discussions](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/discussions).

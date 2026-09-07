@@ -1,6 +1,6 @@
 {
 	"name": "linked-graph",
-	"version": "1.6.7",
+	"version": "1.6.8",
 	"description": "Follow the links you wrote in order as a focused outline or graph beside the active note.",
 	"main": "main.js",
 	"type": "module",
@@ -10,11 +10,15 @@
 		"check:css": "node scripts/check-css.mjs",
 		"check:media": "node scripts/check-release-media.mjs",
 		"build": "npm run typecheck && npm run check:css && node esbuild.config.mjs production",
+		"demo:build": "node demo/scripts/build.mjs",
 		"version": "node version-bump.mjs && git add manifest.json versions.json",
 		"lint": "eslint .",
 		"knip": "knip",
 		"test": "node --import tsx --test tests/*.test.ts",
 		"check": "npm run lint && npm run knip && npm run build && npm test && npm run check:media"
+	},
+	"knip": {
+		"ignoreBinaries": ["ffmpeg", "ffprobe"]
 	},
 	"keywords": [
 		"obsidian",
@@ -27,12 +31,12 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/woonyong-kr/linked-graph.git"
+		"url": "git+https://github.com/woonyong-kr/obsidian-linked-graph-navigator.git"
 	},
 	"bugs": {
-		"url": "https://github.com/woonyong-kr/linked-graph/issues"
+		"url": "https://github.com/woonyong-kr/obsidian-linked-graph-navigator/issues"
 	},
-	"homepage": "https://github.com/woonyong-kr/linked-graph#readme",
+	"homepage": "https://github.com/woonyong-kr/obsidian-linked-graph-navigator#readme",
 	"engines": {
 		"node": ">=20"
 	},
@@ -43,13 +47,13 @@
 		"esbuild": "0.28.2",
 		"eslint": "^9.39.4",
 		"eslint-plugin-obsidianmd": "^0.4.2",
-		"globals": "^17.11.0",
+		"globals": "^17.12.0",
 		"jiti": "^2.6.1",
-		"knip": "^6.33.0",
+		"knip": "^6.34.0",
 		"obsidian": "^1.13.1",
-		"tsx": "^4.20.6",
+		"tsx": "^4.23.13",
 		"typescript": "^5.8.3",
-		"typescript-eslint": "^8.68.0"
+		"typescript-eslint": "^8.69.0"
 	},
 	"dependencies": {
 		"d3-force": "^3.0.0"

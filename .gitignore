@@ -18,5 +18,8 @@ main.js
 # obsidian
 data.json
 
+# Demo build output is reproducible from the checked-in 16:9 source frames.
+demo/dist/
+
 # Exclude macOS Finder (System Explorer) View States
 .DS_Store

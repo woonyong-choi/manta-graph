@@ -30,7 +30,21 @@ test("gives chapter-sized graphs enough world space to keep labels from stacking
 });
 
 test("anchors graph edges to the visible dot instead of the label group centre", () => {
-	const anchor = nodeAnchorOffset(90, 30, 8, 10, 8, 8);
+	const anchor = nodeAnchorOffset(
+		{ height: 60, left: 100, top: 200, width: 120 },
+		{ height: 8, left: 174, top: 214, width: 8 },
+		1,
+	);
 
-	assert.deepEqual(anchor, { x: -33, y: -1 });
+	assert.deepEqual(anchor, { x: 18, y: -12 });
+});
+
+test("converts screen-space dot offsets back into the scaled graph world", () => {
+	const anchor = nodeAnchorOffset(
+		{ height: 120, left: 40, top: 80, width: 240 },
+		{ height: 16, left: 188, top: 108, width: 16 },
+		2,
+	);
+
+	assert.deepEqual(anchor, { x: 18, y: -12 });
 });

@@ -11,6 +11,13 @@ export interface NodeAnchorOffset {
 	y: number;
 }
 
+export interface GraphElementRect {
+	height: number;
+	left: number;
+	top: number;
+	width: number;
+}
+
 export function graphLayoutMetrics(width: number, height: number, itemCount: number): GraphLayoutMetrics {
 	const safeWidth = width > 0 ? width : 640;
 	const safeHeight = height > 0 ? height : 640;
@@ -32,16 +39,14 @@ export function graphLayoutMetrics(width: number, height: number, itemCount: num
 }
 
 export function nodeAnchorOffset(
-	nodeWidth: number,
-	nodeHeight: number,
-	dotLeft: number,
-	dotTop: number,
-	dotWidth: number,
-	dotHeight: number,
+	node: GraphElementRect,
+	dot: GraphElementRect,
+	scale: number,
 ): NodeAnchorOffset {
+	const safeScale = Number.isFinite(scale) && scale > 0 ? scale : 1;
 	return {
-		x: -nodeWidth / 2 + dotLeft + dotWidth / 2,
-		y: -nodeHeight / 2 + dotTop + dotHeight / 2,
+		x: (dot.left + dot.width / 2 - node.left - node.width / 2) / safeScale,
+		y: (dot.top + dot.height / 2 - node.top - node.height / 2) / safeScale,
 	};
 }
 

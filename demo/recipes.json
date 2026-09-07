@@ -1,0 +1,16 @@
+[
+  {
+    "id": "linked-graph",
+    "output": "linked-graph-demo.gif",
+    "width": 1600,
+    "height": 900,
+    "fps": 10,
+    "frameDuration": 1.7,
+    "fadeDuration": 0.25,
+    "frames": [
+      "captures/frames/01-active-note.png",
+      "captures/frames/02-route-map.png",
+      "captures/frames/03-outline.png"
+    ]
+  }
+]

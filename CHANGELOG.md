@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.8
+
+- Anchor every SVG edge to the measured centre of its visible dot, even when the dot is nested inside a padded or wrapped node label.
+- Convert measured screen-space offsets back through the active graph scale so zoom and fit cannot separate lines from their dots.
+- Add regression coverage for nested node visuals and scaled graph worlds, while preserving the existing hover, click, drag, and reduced-motion contracts.
+
 ## 1.6.7
 
 - Keep private/source, generated/archive, dot-prefixed internal, and retired destinations out of graph routes, previews, and parent navigation.

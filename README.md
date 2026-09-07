@@ -2,8 +2,8 @@
 
 <p align="center">
   <a href="obsidian://show-plugin?id=linked-graph"><img alt="Obsidian Community Plugin" src="https://img.shields.io/badge/Obsidian-Community_plugin-7C3AED?logo=obsidian" /></a>
-  <a href="https://github.com/woonyong-kr/linked-graph/actions/workflows/lint.yml"><img alt="Node.js build" src="https://github.com/woonyong-kr/linked-graph/actions/workflows/lint.yml/badge.svg" /></a>
-  <a href="https://github.com/woonyong-kr/linked-graph/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/woonyong-kr/linked-graph?sort=semver" /></a>
+  <a href="https://github.com/woonyong-kr/obsidian-linked-graph-navigator/actions/workflows/lint.yml"><img alt="Node.js build" src="https://github.com/woonyong-kr/obsidian-linked-graph-navigator/actions/workflows/lint.yml/badge.svg" /></a>
+  <a href="https://github.com/woonyong-kr/obsidian-linked-graph-navigator/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/woonyong-kr/obsidian-linked-graph-navigator?sort=semver" /></a>
   <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-blue.svg" /></a>
 </p>
 
@@ -145,12 +145,12 @@ See the detailed [UX contract](docs/ux-contract.md), [design system](docs/design
 
 Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. The plugin supports Obsidian 1.8.0 or later on desktop and mobile.
 
-For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-kr/linked-graph/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
+For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
 
 ## Support and development
 
 - Read the [changelog](CHANGELOG.md) and [roadmap](ROADMAP.md).
-- Report a [bug or use case](https://github.com/woonyong-kr/linked-graph/issues/new/choose).
+- Report a [bug or use case](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/issues/new/choose).
 - Review the [contributing guide](CONTRIBUTING.md) before opening a pull request.
 
 ```bash

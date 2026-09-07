@@ -570,18 +570,7 @@ export class OneHopForceGraph {
 	private nodeAnchor(node: PhysicsNode): NodeAnchorOffset {
 		const anchor = node.element;
 		if (!anchor || !node.dot) return { x: 0, y: 0 };
-		const offset = nodeAnchorOffset(
-			anchor.offsetWidth,
-			anchor.offsetHeight,
-			node.dot.offsetLeft,
-			node.dot.offsetTop,
-			node.dot.offsetWidth,
-			node.dot.offsetHeight,
-		);
-		return {
-			x: offset.x + (node.hoverOffsetX ?? 0),
-			y: offset.y + (node.hoverOffsetY ?? 0),
-		};
+		return nodeAnchorOffset(anchor.getBoundingClientRect(), node.dot.getBoundingClientRect(), this.scale);
 	}
 
 	private moveHover(event: PointerEvent, node: PhysicsNode): void {
