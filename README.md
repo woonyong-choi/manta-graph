@@ -159,7 +159,7 @@ npm run check
 npm audit --omit=dev --audit-level=high
 ```
 
-`npm run check` runs ESLint, unused-code analysis, TypeScript, CSS policy checks, the production build, 43 focused tests, and release-media validation. Node.js 20 or later is required.
+`npm run check` runs ESLint, unused-code analysis, TypeScript, CSS policy checks, the production build, more than 40 focused tests, and release-media validation. Node.js 20 or later is required.
 
 ## License
 

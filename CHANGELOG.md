@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.9
+
+- Keep the public verification description accurate as the focused regression suite grows, without coupling Community documentation to an exact test count.
+
 ## 1.6.8
 
 - Anchor every SVG edge to the measured centre of its visible dot, even when the dot is nested inside a padded or wrapped node label.
