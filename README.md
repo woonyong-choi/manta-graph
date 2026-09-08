@@ -68,7 +68,9 @@ The graph is for spatial scanning and direct manipulation:
 - a completed drag becomes the node's position for this session, while cancel or focus loss restores the previous position;
 - node colours use existing canonical metadata only; titles never infer type.
 
-![Linked Graph Navigator preserving authored route order in Outline in a sharp 16:9 Obsidian capture](docs/assets/linked-graph-runtime-preview.png)
+![Linked Graph Navigator showing the next route while Lesson has keyboard focus in Obsidian](docs/assets/linked-graph-runtime-preview.png)
+
+These captures use a public sample vault in Obsidian 1.13.7 (2026-09-08). The demo shows the current-note graph, keyboard preview, and Outline view with SVG controls.
 
 The Outline preserves reading order:
 

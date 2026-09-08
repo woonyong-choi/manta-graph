@@ -8,8 +8,8 @@
     "frameDuration": 1.7,
     "fadeDuration": 0.25,
     "frames": [
-      "captures/frames/01-active-note.png",
-      "captures/frames/02-route-map.png",
+      "../docs/assets/linked-graph-runtime.png",
+      "../docs/assets/linked-graph-runtime-preview.png",
       "captures/frames/03-outline.png"
     ]
   }

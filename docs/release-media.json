@@ -1,26 +1,27 @@
 {
-	"version": "1.6.9",
-	"capturedWith": "Obsidian 1.13.7",
-	"capturedAt": "2026-09-01",
-	"publicSafeSample": true,
-	"assets": [
-		{
-			"path": "docs/assets/linked-graph-demo.gif",
-			"width": 1600,
-			"height": 900,
-			"sha256": "6f7b5511fdd022133655bbf1c04ddced2f67540b8dbb44f6ab6b0d0fadc8907e"
-		},
-		{
-			"path": "docs/assets/linked-graph-runtime.png",
-			"width": 1600,
-			"height": 900,
-			"sha256": "3ae63d11c02842ee145cc18f1608117e95f4d048a99a880a7bb65264df5c6078"
-		},
-		{
-			"path": "docs/assets/linked-graph-runtime-preview.png",
-			"width": 1600,
-			"height": 900,
-			"sha256": "0b3235819bd6d6b89ada5d6f3bf8b54bd7562dcf0a8d783207cb2d2f285b508b"
-		}
-	]
+  "version": "1.6.9",
+  "capturedWith": "Obsidian 1.13.7 native app screenshots; 16:9 padding, no UI reconstruction",
+  "capturedAt": "2026-09-08",
+  "publicSafeSample": true,
+  "assets": [
+    {
+      "path": "docs/assets/linked-graph-demo.gif",
+      "width": 1600,
+      "height": 900,
+      "sha256": "9d9c324750c850ac9f0a2e8b724fe07b6d194370b960deb75f8afdc26e6a6994"
+    },
+    {
+      "path": "docs/assets/linked-graph-runtime.png",
+      "width": 1984,
+      "height": 1116,
+      "sha256": "d63f3c688d708f2cc81409b4768373173485c99c47864409e8baf229af8d835d"
+    },
+    {
+      "path": "docs/assets/linked-graph-runtime-preview.png",
+      "width": 1984,
+      "height": 1116,
+      "sha256": "94293a33a5c67ae9f29e5c55ede379e9286fce42361c47073c46c1160cad106e"
+    }
+  ],
+  "sourceCommit": "5e6b32b"
 }
