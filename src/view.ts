@@ -83,7 +83,7 @@ export class LinkedGraphView extends ItemView {
 		const actions = header.createDiv({ cls: "linked-graph-header-actions" });
 		this.backButton = this.iconButton(actions, "arrow-left", COPY.actions.back, () => void this.plugin.navigateHistory(-1));
 		this.forwardButton = this.iconButton(actions, "arrow-right", COPY.actions.forward, () => void this.plugin.navigateHistory(1));
-		const search = actions.createEl("button", { cls: "clickable-icon", attr: { "aria-label": COPY.actions.search, type: "button" } });
+		const search = actions.createEl("button", { cls: "clickable-icon", attr: { "aria-label": COPY.actions.search, title: COPY.actions.search, type: "button" } });
 		setIcon(search, "search");
 		this.modeButton = actions.createEl("button", { cls: "linked-graph-mode", attr: { type: "button" } });
 		const searchRow = container.createDiv({ cls: "linked-graph-search" });
@@ -163,8 +163,8 @@ export class LinkedGraphView extends ItemView {
 		this.modeButton.empty();
 		const graphMode = this.mode === "graph";
 		setIcon(this.modeButton.createSpan({ cls: "linked-graph-mode-icon" }), graphMode ? "list-tree" : "git-branch");
-		this.modeButton.createSpan({ text: graphMode ? COPY.actions.showOutline : COPY.actions.showGraph });
 		this.modeButton.ariaLabel = graphMode ? COPY.actions.showOutline : COPY.actions.showGraph;
+		this.modeButton.title = this.modeButton.ariaLabel;
 		this.modeButton.ariaPressed = String(graphMode);
 	}
 

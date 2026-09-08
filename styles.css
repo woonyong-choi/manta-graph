@@ -703,10 +703,6 @@
 		padding-inline: var(--lg-space-1);
 	}
 
-	.linked-graph-mode > span:last-child {
-		display: none;
-	}
-
 	.linked-graph-children {
 		margin-left: var(--lg-space-4);
 		padding-left: var(--lg-space-3);
