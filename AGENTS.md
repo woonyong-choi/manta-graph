@@ -8,7 +8,7 @@ Linked Graph is a local-first Obsidian Community Plugin. Canonical Markdown is t
 - Keep pure parsing and ordering in `src/model.ts`, plugin lifecycle in `src/main.ts`, and right-sidebar rendering in `src/view.ts`.
 - Preserve the invariants in `docs/ux-contract.md`. A behaviour change updates the contract, implementation, focused regression test, and runtime smoke procedure together.
 - Use Obsidian's public API. Do not inspect internal editor DOM, access files outside the Vault, introduce telemetry or network access, load remote code, or call Electron/Node APIs from the plugin bundle.
-- Do not write Vault files or plugin knowledge state. Search, collapse, and preview remain session-only.
+- Do not write notes or plugin knowledge state. Only normalized display mode and exclusion preferences may be saved. Search, collapse, preview, graph positions, and history remain session-only.
 - Register workspace, Vault, DOM, and timer resources through Obsidian lifecycle owners.
 - Keep user-facing copy in `src/ui/copy-ko.ts` and `src/ui/copy-en.ts`.
 

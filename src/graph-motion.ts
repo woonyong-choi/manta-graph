@@ -7,8 +7,8 @@ export const GRAPH_MOTION = {
 	dropAlpha: 0.08,
 	cancelAlpha: 0.04,
 	hoverRangePx: 36,
-	hoverMaximumPx: 8,
-	hoverStrength: 0.22,
+	hoverMaximumPx: 3,
+	hoverStrength: 0.12,
 } as const;
 
 export interface PointerPosition {

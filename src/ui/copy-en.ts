@@ -1,4 +1,5 @@
 export const COPY_EN = {
+	settings: { mode: "Display mode", excludedFolders: "Excluded folders", excludedFoldersDesc: "One folder per line. A name matches any path segment; a path matches from the Vault root. Clear to include ordinary folders. Hidden internal roots remain excluded.", excludedStatuses: "Excluded statuses", excludedStatusesDesc: "One value per line. Matches status, lifecycle, or lifecycle_status. Only preferences are saved; notes remain unchanged." },
 	view: { title: "Linked Graph Navigator", openRibbon: "View the current note in Linked Graph Navigator", openCommand: "Open Linked Graph Navigator for the current note", refreshCommand: "Refresh Linked Graph Navigator", focusSearchCommand: "Focus route search", backCommand: "Navigate back in this session", forwardCommand: "Navigate forward in this session" },
 	actions: {
 		search: "Search current links", back: "Back", forward: "Forward", showGraph: "Graph view", showOutline: "Outline view",
@@ -8,6 +9,7 @@ export const COPY_EN = {
 		showAllInOutline: "Show all in Outline",
 	},
 	labels: {
+		omissionSummary: (excluded: number, unresolved: number) => `${String(excluded)} excluded by settings · ${String(unresolved)} unresolved links. Check destination files and plugin settings.`,
 		noCurrentDocument: "No current Markdown note", searchPlaceholder: "Search current routes",
 		routeCount: (count: number) => `Current note · ${String(count)} routes`,
 		treeAria: "Link outline authored from the current Markdown note", graphAria: "One-hop link graph for the current Markdown note", loading: "Reading links…",

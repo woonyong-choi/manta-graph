@@ -1,3 +1,4 @@
+import { DEFAULT_SETTINGS, type GraphSettings } from "./settings";
 export type NodeVisualKind =
 	| "hub"
 	| "project"
@@ -20,17 +21,6 @@ export interface GraphNavigationTarget extends ParsedParentLink {
 	path: string;
 	kind: NodeVisualKind;
 }
-
-const HIDDEN_PATH_SEGMENTS = new Set([
-	"private",
-	"_sources",
-	"_generated",
-	"generated",
-	"archive",
-	"archived",
-]);
-
-const HIDDEN_LIFECYCLES = new Set(["archived", "retired", "superseded"]);
 
 const ENTITY_KINDS = new Map<string, NodeVisualKind>([
 	["project", "project"],
@@ -79,20 +69,22 @@ function stringValues(value: unknown): string[] {
 	return Array.isArray(value) ? value.filter((item): item is string => typeof item === "string") : [];
 }
 
-export function isGraphDestinationVisible(path: string, frontmatter: unknown): boolean {
+export function isGraphDestinationVisible(path: string, frontmatter: unknown, settings: GraphSettings = DEFAULT_SETTINGS): boolean {
 	const segments = path
 		.replace(/\\/g, "/")
 		.split("/")
 		.map((segment) => segment.trim().toLocaleLowerCase())
 		.filter(Boolean);
 	if (segments.length === 0 || segments[0]?.startsWith(".")) return false;
-	if (segments.some((segment) => HIDDEN_PATH_SEGMENTS.has(segment))) return false;
+	if (settings.excludedFolders.some((folder) => folder.includes("/")
+		? segments.join("/").startsWith(`${folder}/`)
+		: segments.includes(folder))) return false;
 
 	const metadata = record(frontmatter);
 	if (!metadata) return true;
 	return ![metadata.status, metadata.lifecycle, metadata.lifecycle_status]
 		.map(normalizedString)
-		.some((value) => HIDDEN_LIFECYCLES.has(value));
+		.some((value) => settings.excludedStatuses.includes(value));
 }
 
 export function nodeVisualKind(frontmatter: unknown): NodeVisualKind {

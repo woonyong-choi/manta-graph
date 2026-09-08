@@ -83,3 +83,13 @@ test("preserves the authored heading path as navigation context", () => {
 	assert.equal(graphMatches(links[1]!, "practice"), true);
 	assert.equal(graphMatches(links[2]!, "learn"), false);
 });
+
+for (const [opening, inner, closing] of [["````markdown", "```", "````"], ["~~~md", "```", "~~~"], ["````", "```", ""]]) {
+  test(`keeps nested fences inside ${opening} out of routes`, () => {
+    const markdown = [opening, inner, "[[개념]]", inner, closing].join("\n");
+    assert.equal(parseDocumentLinks(markdown, "Test.md", "Test", resolve).linkCount, 0);
+  });
+}
+test("resumes routes after a valid closing fence", () => {
+  assert.equal(parseDocumentLinks(["````md", "```", "`````", "[[개념]]"].join("\n"), "Test.md", "Test", resolve).linkCount, 1);
+});

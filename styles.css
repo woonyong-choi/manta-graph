@@ -30,7 +30,7 @@
 	--lg-icon-size: 16px;
 	--lg-font-small: var(--font-ui-smaller);
 	--lg-font-normal: var(--font-ui-small);
-	--lg-preview-duration: 160ms;
+	--lg-preview-duration: 120ms;
 }
 /* linked-graph-design-tokens:end */
 
@@ -64,8 +64,8 @@
 	margin: 0 0 var(--lg-space-1);
 	overflow: hidden;
 	color: var(--lg-text);
-	font-size: var(--h3-size);
-	font-weight: var(--font-bold);
+	font-size: var(--font-ui-medium);
+	font-weight: var(--font-semibold);
 	letter-spacing: var(--letter-spacing-tight);
 	text-overflow: ellipsis;
 	white-space: nowrap;

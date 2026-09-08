@@ -32,7 +32,7 @@ Linked Graph Navigator turns the links in your current Markdown note into a calm
 - **Two useful views:** switch between a direct-link graph and a compact outline.
 - **One-hop preview:** hover or focus a route to see where it leads next.
 - **Direct navigation:** click a route to open the canonical note; click the root to follow its configured parent.
-- **Local and read-only:** no network requests, telemetry, generated maps, or Vault writes.
+- **Local and read-only:** no network requests, telemetry, generated maps, or note writes.
 - **Desktop and mobile:** built only on Obsidian's public API.
 
 Use it for a course index, project hub, research trail, onboarding guide, or any note where link order expresses what to read next. The source note remains the map; the plugin is only a live view of that intent.
@@ -125,9 +125,9 @@ These are visual safeguards, not data loss: the source Markdown remains canonica
 Linked Graph Navigator is local-first and read-only:
 
 - it makes no network requests and includes no telemetry;
-- it never creates, edits, renames, or deletes Vault files;
+- it never creates, edits, renames, or deletes notes;
 - it stores no relationship database, layout, Canvas, sidecar, or duplicated note;
-- search, collapse, graph positions, and navigation history are session-only;
+- display mode and folder/status exclusions are saved in plugin settings; search, collapse, graph positions, and navigation history remain session-only;
 - removing the plugin removes no knowledge.
 
 See the detailed [UX contract](docs/ux-contract.md), [design system](docs/design-system.md), and [security policy](SECURITY.md).
@@ -164,3 +164,8 @@ npm audit --omit=dev --audit-level=high
 ## License
 
 [MIT](LICENSE)
+
+## Display preferences
+
+Graph remains the initial view. Switching to Outline is remembered across restarts.
+In plugin settings, list excluded folders and statuses one per line. A folder name matches any path segment; a path such as `Work/Archive` matches from the Vault root. Clear these lists to include ordinary folders/statuses. Hidden internal roots remain excluded. An empty navigator reports excluded and unresolved links separately.

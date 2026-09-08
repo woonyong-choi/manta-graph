@@ -1,3 +1,5 @@
+> Historical screenshots below predate the September 2026 preference and header changes. They are not acceptance evidence for the current candidate.
+
 # Linked Graph Navigator design QA
 
 ## Rendered implementation
@@ -60,3 +62,7 @@ The same runtime exposed session-only Back and Forward controls plus route searc
 19. Removed title ellipsis, allowed multiline wrapping, measured collision height, and fitted the settled graph once so complete labels remain visible without overriding later user navigation.
 
 final result: passed
+
+## Current candidate runtime smoke
+
+Use a separate test Vault. Open a hub with resolved, excluded and unresolved links; confirm omission diagnostics. Search for the second route in Outline, press Arrow Down, then Enter and verify the destination. Switch modes, reload, and verify the selected mode. Clear exclusions and verify an ordinary private folder becomes visible while dot-prefixed internal roots remain hidden. Compare dark/light, 360px sidebar and keyboard focus. Do not mark runtime passed from DOM unit tests alone.

@@ -1,3 +1,5 @@
+import { normalizeSettings, type GraphSettings } from "./settings";
+import { GraphSettingTab } from "./settings-tab";
 import { MarkdownView, Notice, Plugin, TAbstractFile, TFile, WorkspaceLeaf } from "obsidian";
 import { SessionNavigationHistory } from "./history";
 import { parseDocumentLinks, type DocumentLinkGraph } from "./model";
@@ -12,13 +14,17 @@ import { COPY } from "./ui/copy";
 import { LinkedGraphView, VIEW_TYPE_LINKED_GRAPH } from "./view";
 
 export default class LinkedGraphPlugin extends Plugin {
+	preferences: GraphSettings = normalizeSettings(null);
 	private currentFile: TFile | null = null;
 	private sourceLeaf: WorkspaceLeaf | null = null;
 	private refreshTimer: number | undefined;
 	private readonly sessionHistory = new SessionNavigationHistory();
 	private navigatingHistory = false;
+	private preferencesWrite: Promise<void> = Promise.resolve();
 
 	async onload(): Promise<void> {
+		this.preferences = normalizeSettings(await this.loadData());
+		this.addSettingTab(new GraphSettingTab(this.app, this));
 		this.registerView(VIEW_TYPE_LINKED_GRAPH, (leaf) => new LinkedGraphView(leaf, this));
 
 		this.addRibbonIcon("git-branch", COPY.view.openRibbon, () => void this.openLinkedGraph());
@@ -69,20 +75,32 @@ export default class LinkedGraphPlugin extends Plugin {
 		return this.currentFile;
 	}
 
+	async savePreferences(): Promise<void> {
+		this.preferences = normalizeSettings(this.preferences);
+		const snapshot = this.preferences;
+		this.preferencesWrite = this.preferencesWrite.catch(() => undefined).then(() => this.saveData(snapshot));
+		await this.preferencesWrite;
+		this.refreshViews();
+	}
+
 	async graphFor(file: TFile): Promise<DocumentLinkGraph> {
 		const markdown = await this.app.vault.cachedRead(file);
-		return parseDocumentLinks(markdown, file.path, file.basename, (linkPath, sourcePath) => {
+		const excluded = new Set<string>();
+		const unresolved = new Set<string>();
+		const graph = parseDocumentLinks(markdown, file.path, file.basename, (linkPath, sourcePath) => {
 			const destination = this.app.metadataCache.getFirstLinkpathDest(linkPath, sourcePath);
-			return destination?.extension === "md" && this.graphDestinationVisible(destination)
-				? destination.path
-				: null;
+			if (!destination) { unresolved.add(linkPath); return null; }
+			if (destination.extension !== "md" || !this.graphDestinationVisible(destination)) { excluded.add(linkPath); return null; }
+			return destination.path;
 		});
+		return { ...graph, diagnostics: { excluded: excluded.size, unresolved: unresolved.size } };
 	}
 
 	private graphDestinationVisible(file: TFile): boolean {
 		return isGraphDestinationVisible(
 			file.path,
 			this.app.metadataCache.getFileCache(file)?.frontmatter,
+			this.preferences,
 		);
 	}
 

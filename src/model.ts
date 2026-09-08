@@ -20,6 +20,7 @@ interface LinkGroup {
 export type GraphEntry = LinkedNote | LinkGroup;
 
 export interface DocumentLinkGraph {
+	diagnostics?: { excluded: number; unresolved: number };
 	sourcePath: string;
 	title: string;
 	entries: GraphEntry[];
@@ -34,7 +35,7 @@ function visibleMarkdown(markdown: string): string[] {
 	const lines = markdown.split(/\r?\n/);
 	const visible: string[] = [];
 	let inFrontmatter = lines[0]?.trim() === "---";
-	let inFence = false;
+	let fence: { marker: string; length: number } | null = null;
 	let inComment = false;
 
 	for (let index = 0; index < lines.length; index += 1) {
@@ -43,11 +44,16 @@ function visibleMarkdown(markdown: string): string[] {
 			if (index > 0 && line.trim() === "---") inFrontmatter = false;
 			continue;
 		}
-		if (/^\s*(```|~~~)/.test(line)) {
-			inFence = !inFence;
-			continue;
+		const delimiter = /^ {0,3}(`{3,}|~{3,})(.*)$/u.exec(line);
+		if (fence) {
+		  if (delimiter && delimiter[1]?.[0] === fence.marker
+		    && delimiter[1].length >= fence.length && !delimiter[2]?.trim()) fence = null;
+		  continue;
 		}
-		if (inFence) continue;
+		if (delimiter && !(delimiter[1]?.[0] === "`" && delimiter[2]?.includes("`"))) {
+		  fence = { marker: delimiter[1]?.[0] ?? "`", length: delimiter[1]?.length ?? 3 };
+		  continue;
+		}
 
 		let remainder = line;
 		if (inComment) {

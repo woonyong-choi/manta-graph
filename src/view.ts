@@ -7,14 +7,13 @@ import { COPY } from "./ui/copy";
 
 export const VIEW_TYPE_LINKED_GRAPH = "linked-graph-view";
 
-type ViewMode = "graph" | "outline";
 
 export class LinkedGraphView extends ItemView {
 	private sourceFile: TFile | null = null;
 	private graph: DocumentLinkGraph | null = null;
 	private generation = 0;
 	private query = "";
-	private mode: ViewMode = "graph";
+	private get mode() { return this.plugin.preferences.mode; }
 	private readonly collapsedGroups = new Set<string>();
 	private graphSurface: OneHopForceGraph | null = null;
 	private body: HTMLElement | null = null;
@@ -99,8 +98,9 @@ export class LinkedGraphView extends ItemView {
 			if (searching) input.focus();
 		});
 		this.modeButton.addEventListener("click", () => {
-			this.mode = this.mode === "outline" ? "graph" : "outline";
+			this.plugin.preferences.mode = this.mode === "outline" ? "graph" : "outline";
 			this.render();
+			void this.plugin.savePreferences();
 		});
 		input.addEventListener("input", () => {
 			this.query = input.value;
@@ -153,7 +153,9 @@ export class LinkedGraphView extends ItemView {
 			this.contextLabel.setText(COPY.labels.noCurrentDocument);
 			return;
 		}
+		const diagnostics = this.graph.diagnostics;
 		this.contextLabel.setText(COPY.labels.routeCount(this.graph.linkCount));
+		this.contextLabel.title = diagnostics ? COPY.labels.omissionSummary(diagnostics.excluded, diagnostics.unresolved) : "";
 	}
 
 	private updateModeButton(): void {
@@ -186,6 +188,10 @@ export class LinkedGraphView extends ItemView {
 		}
 		if (this.graph.entries.length === 0) {
 			this.body.createDiv({ cls: "linked-graph-state", text: COPY.labels.noLinks });
+			const diagnostics = this.graph.diagnostics;
+			if (diagnostics && (diagnostics.excluded || diagnostics.unresolved)) {
+				this.body.createDiv({ cls: "linked-graph-state", text: COPY.labels.omissionSummary(diagnostics.excluded, diagnostics.unresolved) });
+			}
 			return;
 		}
 		const entries = this.graph.entries.filter((entry) => graphMatches(entry, this.query));
@@ -270,7 +276,8 @@ export class LinkedGraphView extends ItemView {
 				void this.plugin.openLinkedNote(parent.linkText, sourcePath, parent.path);
 			},
 			onShowAll: () => {
-				this.mode = "outline";
+				this.plugin.preferences.mode = "outline";
+				void this.plugin.savePreferences();
 				this.render();
 			},
 			onPreview: async (node) => {

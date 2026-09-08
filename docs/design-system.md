@@ -31,3 +31,7 @@
 - Drag begins only after deliberate screen-space movement; small pointer jitter remains a native button click at every graph scale. Wheel gestures have icon-button alternatives for zoom reset.
 - Hover preview is also available on keyboard focus and is never required to reach a direct linked note.
 - Reduced-motion preferences remove hover and preview transitions without hiding routes or changing navigation behaviour.
+
+## September 2026 simplification
+
+Keep the document title at the host interface size, use a single divider hierarchy, and limit hover displacement to 3px. Display/exclusion preferences are persistent; graph coordinates and interactions remain transient. No new UI framework or runtime network dependency is introduced.
