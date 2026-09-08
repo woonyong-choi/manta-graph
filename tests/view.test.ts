@@ -36,6 +36,24 @@ const source = result.outputFiles[0]?.text;
 assert.ok(source);
 const { LinkedGraphView } = await import(`data:text/javascript;base64,${Buffer.from(source).toString("base64")}`) as typeof import("../src/view");
 
+test("closing a view prevents a pending note read from rendering routes", async () => {
+	const file = {path: "Hub.md"} as TFile;
+	const graph = parseDocumentLinks("- [[Late route]]", "Hub.md", "Hub", name => `${name}.md`);
+	let deliver: (value: typeof graph) => void = () => { throw new Error("Read not started"); };
+	const pending = new Promise<typeof graph>(resolve => { deliver = resolve; });
+	const plugin = {
+		preferences: normalizeSettings({mode: "outline"}), activeSource: () => null,
+		graphFor: () => pending, historyState: () => ({canBack: false, canForward: false}),
+	} as unknown as LinkedGraphPlugin;
+	const view = new LinkedGraphView({} as WorkspaceLeaf, plugin);
+	await view.onOpen();
+	const read = view.refresh(file);
+	await view.onClose();
+	deliver(graph);
+	await read;
+	assert.equal(view.containerEl.querySelectorAll(".linked-graph-link").length, 0);
+});
+
 test("Outline search focuses and opens the authored route", async () => {
 	const file = {path: "Hub.md", basename: "Hub", extension: "md"} as TFile;
 	const opened: string[] = [];

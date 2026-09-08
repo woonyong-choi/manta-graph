@@ -38,6 +38,7 @@ export class LinkedGraphView extends ItemView {
 	}
 
 	async onClose(): Promise<void> {
+		this.generation += 1;
 		this.graphSurface?.destroy();
 		this.graphSurface = null;
 	}
