@@ -1,9 +1,9 @@
 # Release process
 
 1. Confirm the Community directory entry ID is `linked-graph`. Never submit this manifest as an update to the retired `context-graph` entry; directory identifiers cannot be renamed.
-2. Run `npm run check`.
+2. Run `npm run check` when the candidate has not been verified; reuse existing results for identical inputs and environment.
 3. Run `npm audit --omit=dev --audit-level=high`.
-4. Build `main.js` with `npm run build`.
+4. Reuse the `main.js` built by `npm run check`; rebuild only if its inputs changed.
 5. Install the local build through the Woon Obsidian plugin adapter and keep its receipt.
 6. Reload Obsidian; verify one graph creation per navigation and confirm that clicking a direct node opens its canonical note and immediately re-roots the sidebar at that note. In a dense chapter note, confirm the initial graph remains readable instead of shrinking every label into a thumbnail; pan, zoom, fit, and Outline must still reach the complete route set.
 7. For a direct node, confirm a single click opens it without a second disclosure button or `빠른 이동`/`하위 노드` caption. Hover must expose outgoing keywords while only the inner visual follows within 8 screen pixels and returns at the 36-pixel boundary or on leave; the native-button hit target must remain fixed. Keyboard focus must expose the same preview immediately, and Enter must open the note. Preview nodes and edges must reveal and collapse together without detached endpoints.
