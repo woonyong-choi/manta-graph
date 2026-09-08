@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.6.10
+
+- Preserve navigation preferences across restarts and use accessible SVG controls in compact panels.
+- Ignore document reads that complete after the graph view closes.
+- Refresh native demo media and remove stale QA reports and redundant build instructions.
+
 ## 1.6.9
 
 - Keep the public verification description accurate as the focused regression suite grows, without coupling Community documentation to an exact test count.

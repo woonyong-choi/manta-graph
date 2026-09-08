@@ -1,5 +1,5 @@
 {
-  "version": "1.6.9",
+  "version": "1.6.10",
   "capturedWith": "Obsidian 1.13.7 native app screenshots; 16:9 padding, no UI reconstruction",
   "capturedAt": "2026-09-08",
   "publicSafeSample": true,
@@ -23,5 +23,6 @@
       "sha256": "94293a33a5c67ae9f29e5c55ede379e9286fce42361c47073c46c1160cad106e"
     }
   ],
-  "sourceCommit": "5e6b32b"
+  "sourceCommit": "5e6b32b",
+  "capturedVersion": "1.6.9"
 }

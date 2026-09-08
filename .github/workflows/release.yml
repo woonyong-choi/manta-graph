@@ -9,6 +9,7 @@ jobs:
     build:
         runs-on: ubuntu-latest
         permissions:
+            actions: read
             contents: write
             id-token: write
             attestations: write
@@ -26,11 +27,18 @@ jobs:
                   manifest_version="$(node -p 'require("./manifest.json").version')"
                   test "$manifest_version" = "$GITHUB_REF_NAME"
 
+            - name: Require successful CI for this commit
+              env:
+                GH_TOKEN: ${{ github.token }}
+              run: |
+                conclusion="$(gh api "repos/$GITHUB_REPOSITORY/actions/workflows/lint.yml/runs?head_sha=$GITHUB_SHA&event=push&status=completed&per_page=1" --jq ' .workflow_runs[0].conclusion')"
+                test "$conclusion" = success
+
             - name: Build plugin
               run: |
                   npm ci
-                  npm audit --omit=dev --audit-level=high
-                  npm run check
+                  npm run build
+                  npm run check:media
 
             - name: Attest build provenance
               uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4
