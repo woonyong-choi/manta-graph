@@ -8,12 +8,14 @@
 </p>
 
 <p align="center">
-  <strong>Follow the paths you wrote, not every connection in your Vault.</strong>
+  <strong>Follow your notes in the order you wrote them.</strong>
 </p>
 
-Linked Graph Navigator turns the links in your current Markdown note into a calm reading map beside the editor. It preserves the order you wrote, previews one next step on hover or focus, and opens the original note in one click—without turning the whole Vault into a hairball.
+Turn a course index, project hub, or reading list into a sidebar. Browse the links in your current note as an outline or graph, preview the next step, and open the original note.
 
 ![Linked Graph Navigator following an active note from graph to authored outline](docs/assets/linked-graph-demo.gif)
+
+Obsidian recording from September 1, 2026. The latest preference controls and diagnostics are not shown.
 
 ![Linked Graph Navigator following the active Wiki note in a sharp 16:9 Obsidian capture](docs/assets/linked-graph-runtime.png)
 
@@ -29,7 +31,7 @@ Linked Graph Navigator turns the links in your current Markdown note into a calm
 
 - **Current-note scope:** the navigator changes with the active Markdown editor.
 - **Authored order:** routes keep the order and section context from the source note.
-- **Two useful views:** switch between a direct-link graph and a compact outline.
+- **Two useful views:** switch between a direct-link graph and a compact outline; the selected mode is remembered.
 - **One-hop preview:** hover or focus a route to see where it leads next.
 - **Direct navigation:** click a route to open the canonical note; click the root to follow its configured parent.
 - **Local and read-only:** no network requests, telemetry, generated maps, or note writes.
