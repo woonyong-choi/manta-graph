@@ -13,10 +13,6 @@
 
 Turn a course index, project hub, or reading list into a sidebar. Browse the links in your current note as an outline or graph, preview the next step, and open the original note.
 
-![Linked Graph Navigator following an active note from graph to authored outline](docs/assets/linked-graph-demo.gif)
-
-Obsidian recording from September 1, 2026. The latest preference controls and diagnostics are not shown.
-
 ![Linked Graph Navigator following the active Wiki note in a sharp 16:9 Obsidian capture](docs/assets/linked-graph-runtime.png)
 
 <p align="center">
@@ -27,27 +23,34 @@ Obsidian recording from September 1, 2026. The latest preference controls and di
   <a href="https://community.obsidian.md/plugins/linked-graph">Community page</a>
 </p>
 
-## Why people keep it open
+## Quick start: build a two-link reading path
 
-- **Current-note scope:** the navigator changes with the active Markdown editor.
-- **Authored order:** routes keep the order and section context from the source note.
-- **Two useful views:** switch between a direct-link graph and a compact outline; the selected mode is remembered.
-- **One-hop preview:** hover or focus a route to see where it leads next.
-- **Direct navigation:** click a route to open the canonical note; click the root to follow its configured parent.
-- **Local and read-only:** no network requests, telemetry, generated maps, or note writes.
-- **Desktop and mobile:** built only on Obsidian's public API.
+1. Open **Settings → Community plugins → Browse**, search for **Linked Graph Navigator**, then **Install** and **Enable**.
+2. Create two normal notes named `Lesson` and `Practice`. Write any sentence in each so both files exist.
+3. Create a third note named `Learning map` and paste:
 
-Use it for a course index, project hub, research trail, onboarding guide, or any note where link order expresses what to read next. The source note remains the map; the plugin is only a live view of that intent.
+```markdown
+# Learning map
 
-## Quick start
+## Start here
+- [[Lesson]]
+- [[Practice]]
+```
 
-1. Install **Linked Graph Navigator** from **Settings → Community plugins**.
-2. Open a Markdown note containing links such as `[[Concept]]` or `[[Guide#Next step]]`.
-3. Run **Open Linked Graph Navigator for the current note** or select the ribbon icon.
-4. Hover or focus a direct node to preview its outgoing links. Click it to open the note.
-5. Switch to **Outline** when you want the complete authored order and section labels.
+4. Keep `Learning map` active. Run **Open Linked Graph Navigator for the current note** from the command palette, or select the plugin's ribbon icon.
+5. You should see **Learning map** connected to **Lesson** and **Practice**. Switch to **Outline** to see Lesson before Practice under **Start here**. Select a route to open its note.
 
-Want a safe example first? Download the [public demo Vault](https://github.com/woonyong-kr/obsidian-navigator-demo-vault/releases/latest) and follow its five-minute walkthrough. It includes ordinary routes, long labels, next-step previews, and a dense-note fallback.
+Uncreated `[[links]]` do not become routes: create their target notes first. No account, network connection, or required settings are involved.
+
+For a ready-made walkthrough with long labels and a dense graph, download the [public demo Vault](https://github.com/woonyong-kr/obsidian-navigator-demo-vault/releases/latest).
+
+## Where it helps
+
+- **Course index:** keep lessons in the intended reading order and return to the next one quickly.
+- **Project hub:** place design notes and implementation guides beside the current document.
+- **Research trail:** preview a linked note's next links before choosing where to read.
+
+The navigator follows the active Markdown note. It reads existing links locally, makes no network requests, and does not generate a second map or rewrite your notes.
 
 ## From note to next step
 
@@ -70,7 +73,7 @@ The graph is for spatial scanning and direct manipulation:
 
 ![Linked Graph Navigator showing the next route while Lesson has keyboard focus in Obsidian](docs/assets/linked-graph-runtime-preview.png)
 
-These captures use a public sample vault in Obsidian 1.13.7 (2026-09-08). The demo shows the current-note graph, keyboard preview, and Outline view with SVG controls.
+These screenshots use plugin 1.6.9 in a public sample Vault in Obsidian 1.13.7 (September 8, 2026). The graph and keyboard-preview views are unchanged in 1.6.10; saved display preferences are explained below.
 
 The Outline preserves reading order:
 
@@ -80,6 +83,19 @@ The Outline preserves reading order:
 - the full list remains available when a dense graph is visually bounded.
 
 Keyboard flow: run **Focus route search**, type a route or section name, press `Arrow Down` to focus the first match, then press `Enter` to open it.
+
+### Display preferences
+
+Graph is the initial view; choosing Outline is remembered across restarts. Search text, expanded groups, and dragged node positions last only for the current session.
+
+Under the plugin's settings, **Excluded folders** and **Excluded statuses** accept one entry per line:
+
+- Default folder exclusions: `private`, `_sources`, `_generated`, `generated`, `archive`, `archived`.
+- Default status exclusions: `archived`, `retired`, `superseded`, read from `status`, `lifecycle`, or `lifecycle_status`.
+- A folder name matches any path segment; `Work/Archive` matches that path from the Vault root. Edit or clear these lists to include those ordinary folders or statuses.
+- Dot-prefixed internal roots remain hidden even when the lists are empty. Unresolved links and non-Markdown destinations still cannot become routes.
+
+An empty navigator reports excluded and unresolved links separately, so you can distinguish a setting from a missing note.
 
 ## Why not the built-in Graph view?
 
@@ -112,7 +128,7 @@ Visible routes come from resolved internal links in the active note:
 - [Executable exercises](Exercises/README.md)
 ```
 
-The parser supports wikilinks, heading and block subpaths, aliases, and relative Markdown links. It ignores embeds, external URLs, fenced code, inline code, comments, unresolved targets, duplicate destinations, dot-prefixed internal roots, private/source folders, generated/archive folders, and destinations marked `archived`, `retired`, or `superseded`. Ordinary folder names such as `brain` and `inbox` keep their normal meaning. The first H1 is used as the visible note title when available.
+The parser supports wikilinks, heading and block subpaths, aliases, and relative Markdown links. It always ignores embeds, external URLs, fenced code, inline code, comments, unresolved targets, duplicate destinations, and dot-prefixed internal roots. Folder and lifecycle exclusions use the configurable defaults described under **Display preferences**. Ordinary folder names such as `brain` and `inbox` keep their normal meaning. The first H1 is used as the visible note title when available.
 
 ## Performance and limits
 
@@ -139,7 +155,7 @@ See the detailed [UX contract](docs/ux-contract.md), [design system](docs/design
 ## Troubleshooting
 
 - **The navigator is empty:** confirm the active file is Markdown and its internal links resolve to files in the Vault.
-- **A link is missing:** embeds, external URLs, code, comments, unresolved links, duplicates, dot-prefixed internal roots, private/source folders, generated/archive folders, and retired destinations are intentionally excluded.
+- **A link is missing:** check whether the target exists, then review **Excluded folders** and **Excluded statuses**. Embeds, external URLs, code, comments, duplicate destinations, and dot-prefixed internal roots never become routes.
 - **Some graph routes are omitted:** switch to Outline for the complete list or enlarge the sidebar.
 - **Hover preview is empty:** the focused destination has no resolved outgoing links.
 - **A node opened instead of dragging:** begin with a deliberate movement; a short press is intentionally treated as a click.
@@ -147,9 +163,18 @@ See the detailed [UX contract](docs/ux-contract.md), [design system](docs/design
 
 ## Installation and compatibility
 
-Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. The plugin supports Obsidian 1.8.0 or later on desktop and mobile.
+Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. Current release **1.6.10** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
 
 For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
+
+<details>
+<summary>Earlier animated walkthrough</summary>
+
+![Linked Graph Navigator following an active note from graph to authored outline](docs/assets/linked-graph-demo.gif)
+
+Recorded September 1, 2026. This walkthrough shows navigation; the later saved-preference controls are not shown. Use the current instructions above for those settings.
+
+</details>
 
 ## Support and development
 
@@ -168,8 +193,3 @@ npm audit --omit=dev --audit-level=high
 ## License
 
 [MIT](LICENSE)
-
-## Display preferences
-
-Graph remains the initial view. Switching to Outline is remembered across restarts.
-In plugin settings, list excluded folders and statuses one per line. A folder name matches any path segment; a path such as `Work/Archive` matches from the Vault root. Clear these lists to include ordinary folders/statuses. Hidden internal roots remain excluded. An empty navigator reports excluded and unresolved links separately.
