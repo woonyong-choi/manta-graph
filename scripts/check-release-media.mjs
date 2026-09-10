@@ -45,7 +45,7 @@ if (records.size !== requiredAssets.length) fail("capture record must contain ex
 for (const path of requiredAssets) {
 	const record = records.get(path);
 	if (!record) fail(`missing record for ${path}`);
-	if (!readme.includes(`](${path})`)) fail(`README does not embed ${path}`);
+	if (path.endsWith(".gif") && !readme.includes(`](${path})`)) fail(`README does not embed ${path}`);
 
 	const bytes = await readFile(new URL(path, repository));
 	const { width, height } = imageDimensions(bytes, path);

@@ -13,8 +13,6 @@
 
 Turn a course index, project hub, or reading list into a sidebar. Browse the links in your current note as an outline or graph, preview the next step, and open the original note.
 
-![Linked Graph Navigator following the active Wiki note in a sharp 16:9 Obsidian capture](docs/assets/linked-graph-runtime.png)
-
 <p align="center">
   <a href="obsidian://show-plugin?id=linked-graph">Add to Obsidian</a>
   ·
@@ -22,6 +20,9 @@ Turn a course index, project hub, or reading list into a sidebar. Browse the lin
   ·
   <a href="https://community.obsidian.md/plugins/linked-graph">Community page</a>
 </p>
+![Linked Graph Navigator following an active note from graph to authored outline](docs/assets/linked-graph-demo.gif)
+
+Obsidian navigation walkthrough recorded September 1, 2026. Saved-preference controls added later are described below.
 
 ## Quick start: build a two-link reading path
 
@@ -167,16 +168,15 @@ Install from **Settings → Community plugins → Browse → Linked Graph Naviga
 
 For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
 
-<details>
-<summary>Earlier animated walkthrough</summary>
+## Support
 
-![Linked Graph Navigator following an active note from graph to authored outline](docs/assets/linked-graph-demo.gif)
+Report a reproducible problem or use case through [Issues](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/issues/new/choose). Include your Obsidian version, theme, and a small note without private content.
 
-Recorded September 1, 2026. This walkthrough shows navigation; the later saved-preference controls are not shown. Use the current instructions above for those settings.
+## Roadmap
 
-</details>
+The [roadmap](ROADMAP.md) separates available features, work in progress, and ideas under consideration.
 
-## Support and development
+## Development
 
 - Read the [changelog](CHANGELOG.md) and [roadmap](ROADMAP.md).
 - Report a [bug or use case](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/issues/new/choose).

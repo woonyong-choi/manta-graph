@@ -2,13 +2,17 @@
 
 Linked Graph Navigator remains a read-only, current-note navigator over authored Markdown links. It will not become a Vault-wide graph or relationship database.
 
-## Current
+## Available
 
 - Current-note Graph and deterministic Outline over the same resolved outgoing links.
 - Authored section context, search, session-only Back and Forward navigation, and keyboard-first route opening.
 - Bounded graph and next-step DOM with a complete Outline fallback for dense notes.
 
-## Next candidates
+## In progress
+
+- Review focus preservation when following an active note, informed by an [external focus report](https://github.com/zsviczian/excalibrain/issues/228). Confirm behavior here before treating it as a defect.
+
+## Under consideration
 
 - Improve context labels for repeated headings without adding generated relationships.
 - Expand screen-reader and third-party-theme coverage.
