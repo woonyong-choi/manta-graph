@@ -68,6 +68,9 @@ test("Outline search focuses and opens the authored route", async () => {
 	await view.onOpen();
 	const input = view.containerEl.querySelector<HTMLInputElement>("input");
 	assert.ok(input);
+	view.focusSearch();
+	assert.ok(view.containerEl.querySelector(".linked-graph-view.is-searching .linked-graph-search"));
+	assert.equal(window.document.activeElement, input);
 	input.value = "Beta";
 	input.dispatchEvent(new window.Event("input") as unknown as Event);
 	assert.equal(view.containerEl.querySelectorAll(".linked-graph-link").length, 1);

@@ -44,7 +44,7 @@ export class LinkedGraphView extends ItemView {
 	}
 
 	focusSearch(): void {
-		this.containerEl.addClass("is-searching");
+		this.contentEl.addClass("is-searching");
 		this.searchInput?.focus();
 	}
 
@@ -74,7 +74,7 @@ export class LinkedGraphView extends ItemView {
 	}
 
 	private renderShell(): void {
-		const container = this.containerEl.children[1] as HTMLElement;
+		const container = this.contentEl;
 		container.empty();
 		container.addClass("linked-graph-view");
 		const header = container.createEl("header", { cls: "linked-graph-header" });

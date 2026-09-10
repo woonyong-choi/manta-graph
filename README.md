@@ -73,7 +73,7 @@ The graph is for spatial scanning and direct manipulation:
 
 ![Linked Graph Navigator showing the next route while Lesson has keyboard focus in Obsidian](docs/assets/linked-graph-runtime-preview.png)
 
-These screenshots use plugin 1.6.9 in a public sample Vault in Obsidian 1.13.7 (September 8, 2026). The graph and keyboard-preview views are unchanged in 1.6.10; saved display preferences are explained below.
+These screenshots use plugin 1.6.9 in a public sample Vault in Obsidian 1.13.7 (September 8, 2026). The graph and keyboard-preview views are unchanged in 1.6.11; saved display preferences are explained below.
 
 The Outline preserves reading order:
 
@@ -163,7 +163,7 @@ See the detailed [UX contract](docs/ux-contract.md), [design system](docs/design
 
 ## Installation and compatibility
 
-Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. Current release **1.6.10** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
+Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. Version 1.6.11 fixes the route-search command so it reveals and focuses the search field. Current release **1.6.11** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
 
 For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
 

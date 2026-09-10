@@ -25,6 +25,7 @@ Keep the canonical Markdown note visible while providing the shortest readable r
 ## Right sidebar anatomy
 
 - Header: current note title, resolved route count, search icon, and view switch.
+- The search command reveals and focuses the same search field as the header button. Verify it from a closed search row before typing a query and using ArrowDown to focus a result.
 - Outline: deterministic vertical order with hairline separators and blue navigation titles.
 - Plain-text bullet groups: collapsible labels plus descendant link count.
 - Graph: movable current note, force-positioned direct authored links, parent navigation, stable hover/focus outgoing preview, bounded visual nodes, omission status, metadata colours, intentional drag, pan, zoom, and no saved positions.
