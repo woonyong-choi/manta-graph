@@ -1,6 +1,11 @@
 name: Release Obsidian plugin
 
 on:
+    workflow_dispatch:
+        inputs:
+            version:
+                description: Exact manifest version
+                required: true
     push:
         tags:
             - '*'
@@ -8,6 +13,8 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+            RELEASE_VERSION: ${{ inputs.version || github.ref_name }}
         permissions:
             actions: read
             contents: write
@@ -25,7 +32,10 @@ jobs:
             - name: Verify release version
               run: |
                   manifest_version="$(node -p 'require("./manifest.json").version')"
-                  test "$manifest_version" = "$GITHUB_REF_NAME"
+                  test "$manifest_version" = "$RELEASE_VERSION"
+                  if [ "$GITHUB_EVENT_NAME" = workflow_dispatch ]; then
+                    test "$GITHUB_REF" = refs/heads/main
+                  fi
 
             - name: Require successful CI for this commit
               env:
@@ -52,9 +62,10 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               run: |
-                  tag="${GITHUB_REF#refs/tags/}"
+                  tag="$RELEASE_VERSION"
 
                   gh release create "$tag" \
                     --title="$tag" \
+                    --target="$GITHUB_SHA" \
                     --generate-notes \
                     main.js manifest.json styles.css
