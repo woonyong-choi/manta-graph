@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.12
+
+- Resolve node metadata after applying the direct graph display limit. Keep all authored links in Outline, preserve grouping and metadata colours, and separate ordered link traversal from graph presentation.
+
 ## 1.6.10
 
 - Preserve navigation preferences across restarts and use accessible SVG controls in compact panels.
