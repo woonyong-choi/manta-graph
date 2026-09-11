@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { countLinks, graphMatches, parseDocumentLinks } from "../src/model";
+import { countLinks, flattenLinks, graphMatches, parseDocumentLinks } from "../src/model";
 
 const known = new Map([
 	["개념", "Wiki/개념.md"],
@@ -20,6 +20,7 @@ test("keeps authored link order and two-level bullet grouping", () => {
 	assert.equal(books?.kind, "group");
 	if (books?.kind !== "group") return;
 	assert.deepEqual(books.children.map((entry) => entry.label), ["밑바닥부터 만드는 LLM", "딥러닝"]);
+	assert.deepEqual(flattenLinks(graph.entries).map(link => link.label), ["개념", "밑바닥부터 만드는 LLM", "딥러닝", "프로젝트"]);
 });
 
 test("ignores embeds, code, comments, unresolved targets, and duplicate routes", () => {

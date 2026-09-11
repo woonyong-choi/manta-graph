@@ -1,7 +1,7 @@
 import { ItemView, setIcon, TFile, WorkspaceLeaf } from "obsidian";
 import type LinkedGraphPlugin from "./main";
 import { boundedItems, directGraphNodeLimit } from "./limits";
-import { countLinks, graphMatches, type DocumentLinkGraph, type GraphEntry, type LinkedNote } from "./model";
+import { countLinks, flattenLinks, graphMatches, type DocumentLinkGraph, type GraphEntry, type LinkedNote } from "./model";
 import { OneHopForceGraph, type OneHopGraphNode } from "./one-hop-graph";
 import { COPY } from "./ui/copy";
 
@@ -252,7 +252,7 @@ export class LinkedGraphView extends ItemView {
 		if (!this.body || !this.graph || !this.sourceFile) return;
 		const sourceFile = this.sourceFile;
 		const sourcePath = sourceFile.path;
-		const nodes = flattenGraphEntries(entries, (path) => this.plugin.nodeKindForPath(path));
+		const nodes = flattenLinks(entries);
 		const visibleNodes = boundedItems(nodes, directGraphNodeLimit(this.body.clientWidth, this.body.clientHeight));
 		this.graphSurface = new OneHopForceGraph(this.body, {
 			title: this.graph.title,
@@ -268,7 +268,7 @@ export class LinkedGraphView extends ItemView {
 				previewStatus: COPY.labels.previewStatus,
 				showAllInOutline: COPY.actions.showAllInOutline,
 			},
-			items: visibleNodes.items,
+			items: visibleNodes.items.map(link => this.graphNode(link)),
 			omittedDirectCount: visibleNodes.omitted,
 			onOpen: (node) => {
 				void this.plugin.openLinkedNote(node.linkText, sourcePath, node.path);
@@ -285,31 +285,21 @@ export class LinkedGraphView extends ItemView {
 				const file = this.plugin.fileForPath(node.path);
 				if (!file) return [];
 				const preview = await this.plugin.graphFor(file);
-				return flattenGraphEntries(preview.entries, (path) => this.plugin.nodeKindForPath(path))
-					.filter((candidate) => candidate.path !== sourcePath && candidate.path !== node.path);
+				return flattenLinks(preview.entries)
+					.filter((candidate) => candidate.path !== sourcePath && candidate.path !== node.path)
+					.map(link => this.graphNode(link));
 			},
 		});
 	}
-}
 
-function flattenGraphEntries(
-	entries: readonly GraphEntry[],
-	kindForPath: (path: string) => OneHopGraphNode["kind"],
-	result: OneHopGraphNode[] = [],
-): OneHopGraphNode[] {
-	for (const entry of entries) {
-		if (entry.kind === "group") {
-			flattenGraphEntries(entry.children, kindForPath, result);
-			continue;
-		}
-		result.push({
-			key: entry.key,
-			label: entry.label,
-			linkText: entry.linkText,
-			path: entry.path,
-			kind: kindForPath(entry.path),
-				context: entry.sectionPath[entry.sectionPath.length - 1] ?? "",
-		});
+	private graphNode(link: LinkedNote): OneHopGraphNode {
+		return {
+			key: link.key,
+			label: link.label,
+			linkText: link.linkText,
+			path: link.path,
+			kind: this.plugin.nodeKindForPath(link.path),
+			context: link.sectionPath[link.sectionPath.length - 1] ?? "",
+		};
 	}
-	return result;
 }

@@ -272,6 +272,14 @@ export function countLinks(entries: readonly GraphEntry[]): number {
 	return entries.reduce((total, entry) => total + (entry.kind === "link" ? 1 : countLinks(entry.children)), 0);
 }
 
+export function flattenLinks(entries: readonly GraphEntry[], result: LinkedNote[] = []): LinkedNote[] {
+	for (const entry of entries) {
+		if (entry.kind === "group") flattenLinks(entry.children, result);
+		else result.push(entry);
+	}
+	return result;
+}
+
 export function graphMatches(entry: GraphEntry, query: string): boolean {
 	const normalized = query.trim().toLocaleLowerCase();
 	if (!normalized) return true;

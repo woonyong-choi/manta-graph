@@ -29,12 +29,49 @@ for (const [method, tag] of [["createDiv", "div"], ["createSpan", "span"], ["cre
 Reflect.set(prototype, "empty", function(this: HTMLElement) { this.replaceChildren(); });
 Reflect.set(prototype, "setText", function(this: HTMLElement, text: string) { this.textContent = text; });
 Reflect.set(prototype, "addClass", function(this: HTMLElement, name: string) { this.classList.add(name); });
+Reflect.set(prototype, "removeClass", function(this: HTMLElement, name: string) { this.classList.remove(name); });
 Reflect.set(prototype, "hasClass", function(this: HTMLElement, name: string) { return this.classList.contains(name); });
 Reflect.set(prototype, "toggleClass", function(this: HTMLElement, name: string, enabled: boolean) { this.classList.toggle(name, enabled); });
+Reflect.set(globalThis, "createEl", (tag: keyof HTMLElementTagNameMap, options: Options) => {
+	const parent = window.document.createElement("div") as unknown as HTMLElement;
+	const element = parent.createEl(tag, options);
+	element.remove();
+	return element;
+});
+Reflect.set(globalThis, "createSvg", (tag: string) => window.document.createElementNS("http://www.w3.org/2000/svg", tag));
 const result = await build({ entryPoints: ["src/view.ts"], bundle: true, write: false, platform: "node", format: "esm", alias: {obsidian: "./tests/fixtures/obsidian.ts"} });
 const source = result.outputFiles[0]?.text;
 assert.ok(source);
 const { LinkedGraphView } = await import(`data:text/javascript;base64,${Buffer.from(source).toString("base64")}`) as typeof import("../src/view");
+
+test("limits metadata reads to visible graph routes while Outline retains every route", async () => {
+	const file = {path: "Hub.md", basename: "Hub", extension: "md"} as TFile;
+	const metadataReads: string[] = [];
+	const graph = parseDocumentLinks(
+		Array.from({length: 5_000}, (_, index) => `- [[Route ${index + 1}]]`).join("\n"),
+		file.path, file.basename, name => `${name}.md`,
+	);
+	const plugin = {
+		preferences: normalizeSettings(null), activeSource: () => file,
+		graphFor: async () => graph, historyState: () => ({canBack: false, canForward: false}),
+		parentFor: () => null, savePreferences: async () => undefined,
+		nodeKindForPath: (path: string) => { metadataReads.push(path); return "project"; },
+	} as unknown as LinkedGraphPlugin;
+	const view = new LinkedGraphView({} as WorkspaceLeaf, plugin);
+	try {
+		await view.onOpen();
+		const nodes = Array.from(view.containerEl.querySelectorAll(".linked-graph-network-node"));
+		assert.equal(nodes.length, 12);
+		assert.ok(nodes.every(node => node.getAttribute("data-node-kind") === "project"));
+		assert.equal(metadataReads.length, 13); // 12 visible routes and the current note.
+		view.containerEl.querySelector<HTMLButtonElement>(".linked-graph-mode")?.click();
+		assert.equal(view.containerEl.querySelectorAll(".linked-graph-link").length, 5_000);
+		assert.equal(metadataReads.length, 13);
+	} finally {
+		await view.onClose();
+		view.containerEl.remove();
+	}
+});
 
 test("closing a view prevents a pending note read from rendering routes", async () => {
 	const file = {path: "Hub.md"} as TFile;
