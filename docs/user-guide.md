@@ -50,9 +50,9 @@ The graph is for spatial scanning and direct manipulation:
 - a completed drag becomes the node's position for this session, while cancel or focus loss restores the previous position;
 - node colours use existing canonical metadata only; titles never infer type.
 
-![Linked Graph Navigator showing the next route while Lesson has keyboard focus in Obsidian](assets/linked-graph-runtime-preview.png)
+![Linked Graph Navigator showing the next route while Collections has keyboard focus in Obsidian](assets/linked-graph-runtime-preview.png)
 
-These screenshots use plugin 1.6.9 in a public sample Vault in Obsidian 1.13.7 (September 8, 2026). The graph and keyboard-preview views are unchanged in 1.6.11; saved display preferences are explained below.
+These screenshots use plugin 1.6.12 in a public sample Vault in Obsidian 1.13.7 (September 11, 2026). Saved display preferences are explained below.
 
 The Outline preserves reading order:
 
@@ -142,6 +142,6 @@ See the detailed [UX contract](ux-contract.md), [design system](design-system.md
 
 ## Installation and compatibility
 
-Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. Version 1.6.11 fixes the route-search command so it reveals and focuses the search field. Current release **1.6.11** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
+Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. Version 1.6.11 fixes the route-search command so it reveals and focuses the search field. Current release **1.6.12** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
 
 For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.

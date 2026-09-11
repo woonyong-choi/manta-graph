@@ -6,7 +6,7 @@ Follow your notes in the order you wrote them.
 
 **[Install in Obsidian](https://community.obsidian.md/plugins/linked-graph) · [Try the demo Vault](https://github.com/woonyong-kr/obsidian-navigator-demo-vault/releases/latest) · [User guide](docs/user-guide.md)**
 
-Available now: **1.6.11** · Obsidian **1.8.0+** · Desktop and mobile. See [release notes](CHANGELOG.md) for shipped changes and the [roadmap](ROADMAP.md) for work in progress and plans.
+Available now: **1.6.12** · Obsidian **1.8.0+** · Desktop and mobile. See [release notes](CHANGELOG.md) for shipped changes and the [roadmap](ROADMAP.md) for work in progress and plans.
 
 ## Install and try
 
@@ -26,7 +26,7 @@ Manual installation: download the three plugin files from [Releases](https://git
 
 ![Linked Graph Navigator walkthrough](docs/assets/linked-graph-demo.gif)
 
-Obsidian walkthrough, September 1, 2026. Later preference controls are described in the user guide.
+Obsidian desktop capture, September 11, 2026 (1.6.12), using public sample notes.
 
 ## Help and development
 

@@ -2,6 +2,7 @@
 
 ## 1.6.12
 
+- Refresh native Obsidian screenshots and fix the author profile link.
 - Resolve node metadata after applying the direct graph display limit. Keep all authored links in Outline, preserve grouping and metadata colours, and separate ordered link traversal from graph presentation.
 
 ## 1.6.10
