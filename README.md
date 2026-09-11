@@ -6,7 +6,7 @@ Follow your notes in the order you wrote them.
 
 **[Install in Obsidian](https://community.obsidian.md/plugins/linked-graph) · [Try the demo Vault](https://github.com/woonyong-kr/obsidian-navigator-demo-vault/releases/latest) · [User guide](docs/user-guide.md)**
 
-Available now: **1.6.12** · Obsidian **1.8.0+** · Desktop and mobile. See [release notes](CHANGELOG.md) for shipped changes and the [roadmap](ROADMAP.md) for work in progress and plans.
+Available now: **1.6.13** · Obsidian **1.8.0+** · Desktop and mobile. See [release notes](CHANGELOG.md) for shipped changes and the [roadmap](ROADMAP.md) for work in progress and plans.
 
 ## Install and try
 

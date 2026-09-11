@@ -142,6 +142,6 @@ See the detailed [UX contract](ux-contract.md), [design system](design-system.md
 
 ## Installation and compatibility
 
-Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. Version 1.6.11 fixes the route-search command so it reveals and focuses the search field. Current release **1.6.12** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
+Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. Version 1.6.11 fixes the route-search command so it reveals and focuses the search field. Current release **1.6.13** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
 
 For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.

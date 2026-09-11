@@ -130,6 +130,7 @@ test("empty view explains omissions and saves an explicit mode switch", async ()
 		graphFor: async () => ({sourcePath: "Hub.md", title: "Hub", entries: [], linkCount: 0, diagnostics: {excluded: 2, unresolved: 1}}),
 		historyState: () => ({canBack: false, canForward: false}),
 		savePreferences: async () => { saved = JSON.stringify(preferences); },
+		parentFor: () => null,
 	} as unknown as LinkedGraphPlugin;
 	const view = new LinkedGraphView({} as WorkspaceLeaf, plugin);
 	await view.onOpen();
@@ -137,4 +138,30 @@ test("empty view explains omissions and saves an explicit mode switch", async ()
 	view.containerEl.querySelector<HTMLButtonElement>(".linked-graph-mode")?.click();
 	assert.equal(normalizeSettings(JSON.parse(saved)).mode, "outline");
 	await view.onClose();
+});
+
+test("empty notes retain their valid parent route in graph and Outline", async () => {
+	for (const mode of ["graph", "outline"] as const) {
+		const file = {path: "Resources/Career.md"} as TFile;
+		const opened: string[][] = [];
+		const plugin = {
+			preferences: normalizeSettings({mode}), activeSource: () => file,
+			graphFor: async () => ({sourcePath: file.path, title: "Career", entries: [], linkCount: 0}),
+			historyState: () => ({canBack: false, canForward: false}),
+			parentFor: () => ({linkText: "Resources", label: "Resources", path: "Resources.md"}),
+			openLinkedNote: async (...args: string[]) => { opened.push(args); },
+		} as unknown as LinkedGraphPlugin;
+		const view = new LinkedGraphView({} as WorkspaceLeaf, plugin);
+		try {
+			await view.onOpen();
+			const button = view.containerEl.querySelector<HTMLButtonElement>(".linked-graph-body button");
+			assert.ok(button, "An empty note must still expose its parent");
+			assert.match(button.textContent ?? "", /Resources/);
+			button.click();
+			assert.deepEqual(opened, [["Resources", file.path, "Resources.md"]]);
+		} finally {
+			await view.onClose();
+			view.containerEl.remove();
+		}
+	}
 });

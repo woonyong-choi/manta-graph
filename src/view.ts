@@ -193,6 +193,12 @@ export class LinkedGraphView extends ItemView {
 			if (diagnostics && (diagnostics.excluded || diagnostics.unresolved)) {
 				this.body.createDiv({ cls: "linked-graph-state", text: COPY.labels.omissionSummary(diagnostics.excluded, diagnostics.unresolved) });
 			}
+			const parent = this.plugin.parentFor(this.sourceFile);
+			if (parent) {
+				const sourcePath = this.sourceFile.path;
+				this.body.createEl("button", { text: COPY.actions.openParent(parent.label), attr: { type: "button" } })
+					.addEventListener("click", () => void this.plugin.openLinkedNote(parent.linkText, sourcePath, parent.path));
+			}
 			return;
 		}
 		const entries = this.graph.entries.filter((entry) => graphMatches(entry, this.query));

@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.6.13
+
+- Keep a valid parent note reachable from empty graph and Outline views, including notes whose outgoing links are all excluded or unresolved.
+
 ## 1.6.12
 
 - Refresh native Obsidian screenshots and fix the author profile link.
