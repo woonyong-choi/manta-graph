@@ -37,12 +37,12 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/woonyong-kr/obsidian-linked-graph-navigator.git"
+		"url": "git+https://github.com/woonyong-choi/obsidian-linked-graph-navigator.git"
 	},
 	"bugs": {
-		"url": "https://github.com/woonyong-kr/obsidian-linked-graph-navigator/issues"
+		"url": "https://github.com/woonyong-choi/obsidian-linked-graph-navigator/issues"
 	},
-	"homepage": "https://github.com/woonyong-kr/obsidian-linked-graph-navigator#readme",
+	"homepage": "https://github.com/woonyong-choi/obsidian-linked-graph-navigator#readme",
 	"engines": {
 		"node": ">=20"
 	},

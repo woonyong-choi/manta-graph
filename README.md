@@ -4,7 +4,7 @@
 
 Follow your notes in the order you wrote them.
 
-**[Install in Obsidian](https://community.obsidian.md/plugins/linked-graph) · [Try the demo Vault](https://github.com/woonyong-kr/obsidian-navigator-demo-vault/releases/latest) · [User guide](docs/user-guide.md)**
+**[Install in Obsidian](https://community.obsidian.md/plugins/linked-graph) · [Try the demo Vault](https://github.com/woonyong-choi/obsidian-navigator-demo-vault/releases/latest) · [User guide](docs/user-guide.md)**
 
 Available now: **1.6.13** · Obsidian **1.8.0+** · Desktop and mobile. See [release notes](CHANGELOG.md) for shipped changes and the [roadmap](ROADMAP.md) for work in progress and plans.
 
@@ -22,7 +22,7 @@ Available now: **1.6.13** · Obsidian **1.8.0+** · Desktop and mobile. See [rel
 
 Works offline without an account. It follows existing links and does not edit your notes. Create link targets first; unresolved links do not become routes.
 
-Manual installation: download the three plugin files from [Releases](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
+Manual installation: download the three plugin files from [Releases](https://github.com/woonyong-choi/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
 
 ![Linked Graph Navigator walkthrough](docs/assets/linked-graph-demo.gif)
 
@@ -30,6 +30,6 @@ Obsidian desktop capture, September 11, 2026 (1.6.12), using public sample notes
 
 ## Help and development
 
-[User guide](docs/user-guide.md) · [Report a problem](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/issues) · [Community page](https://community.obsidian.md/plugins/linked-graph) · [Contributing](CONTRIBUTING.md)
+[User guide](docs/user-guide.md) · [Report a problem](https://github.com/woonyong-choi/obsidian-linked-graph-navigator/issues) · [Community page](https://community.obsidian.md/plugins/linked-graph) · [Contributing](CONTRIBUTING.md)
 
 [MIT](LICENSE)

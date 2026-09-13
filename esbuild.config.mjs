@@ -4,7 +4,7 @@ import { builtinModules } from 'node:module';
 
 const banner = `/*
 Linked Graph production bundle.
-Source: https://github.com/woonyong-kr/obsidian-linked-graph-navigator
+Source: https://github.com/woonyong-choi/obsidian-linked-graph-navigator
 */
 `;
 

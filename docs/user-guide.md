@@ -21,7 +21,7 @@
 
 Uncreated `[[links]]` do not become routes: create their target notes first. No account, network connection, or required settings are involved.
 
-For a ready-made walkthrough with long labels and a dense graph, download the [public demo Vault](https://github.com/woonyong-kr/obsidian-navigator-demo-vault/releases/latest).
+For a ready-made walkthrough with long labels and a dense graph, download the [public demo Vault](https://github.com/woonyong-choi/obsidian-navigator-demo-vault/releases/latest).
 
 ## Where it helps
 
@@ -115,7 +115,7 @@ The parser supports wikilinks, heading and block subpaths, aliases, and relative
 - A hover preview shows at most 48 next-step nodes.
 - Omitted routes are reported and remain available in Outline.
 - A 5,000-route parser benchmark is documented in [benchmarks](benchmarks.md).
-- The demo Vault includes a [130-route fallback example](https://github.com/woonyong-kr/obsidian-navigator-demo-vault/blob/main/Benchmarks/Dense%20Routes.md).
+- The demo Vault includes a [130-route fallback example](https://github.com/woonyong-choi/obsidian-navigator-demo-vault/blob/main/Benchmarks/Dense%20Routes.md).
 
 These are visual safeguards, not data loss: the source Markdown remains canonical and unchanged.
 
@@ -144,4 +144,4 @@ See the detailed [UX contract](ux-contract.md), [design system](design-system.md
 
 Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. Version 1.6.11 fixes the route-search command so it reveals and focuses the search field. Current release **1.6.13** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
 
-For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-kr/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
+For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-choi/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
