@@ -1,48 +1,319 @@
 {
   "hyperframes": "0.8.38",
+  "encoder_repository": "https://github.com/woonyong-choi/manta-diagrams",
+  "encoder_revision": "64dfeb3cf59cbf66aa429e0acbc932b923ff4352",
+  "encoder_sha256": "cf97747bf064964ee001906497564adc01e259a945a095d18bec501e0340eedb",
+  "composition": {
+    "product": "Manta Graph",
+    "version": "1.6.14",
+    "provenance": "Production UI with public sample data; Obsidian host boundary replaced for Graph and Calendar. Timing condensed; not a native Obsidian recording."
+  },
   "source_sha256": "0a745834912d51e6b9dbace4c629d0970578acb2ec025e0c5e612683aac25d92",
   "inputs_sha256": {
-    "index.html": "0a745834912d51e6b9dbace4c629d0970578acb2ec025e0c5e612683aac25d92",
     "assets/action.js": "5a5fd1bf50586bada40d54c8da684bc3ad5886c9e087c88abee5a0e072329d43",
     "assets/gsap.min.js": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
     "assets/product.css": "382115130f42ea37b37adcdd8db7ae4a3706bbc991e17ae99d8a342ed595c9e4",
+    "index.html": "0a745834912d51e6b9dbace4c629d0970578acb2ec025e0c5e612683aac25d92",
     "index.motion.json": "d85942ba3f479ef3c1afe2759b7ffe6b0b8ad0bb46fa22c9aa3709e92b667b09",
     "inputs.json": "7a646ff690f0cbf8c764c730cbaab4ccc90cce1a883af165832e2fc4bf791508"
+  },
+  "input_sequence_sha256": "58e668133e726fb4a320344ec62bcd15a23480d0c621751d63a4528865c2ddaf",
+  "encoding": {
+    "alpha_composite_rgb": [
+      13,
+      17,
+      23
+    ],
+    "mp4": "libx264rgb CRF 0, full-range RGB, sRGB transfer; editing master",
+    "gif": "PNG RGB -> 25fps/1200px -> full histogram palette -> no dither; infinite loop"
+  },
+  "validation": {
+    "native_recording": false,
+    "browser_playback_verified": false,
+    "source_background_rgb": [
+      13,
+      17,
+      23
+    ],
+    "input_frames": 360,
+    "seam_review": "Decoded 800px boundary and action samples visually reviewed; 4 GIF pixels at card corners differ by at most 2 channel levels. Text, nodes, links and caption match.",
+    "original_composition_inputs_preserved": true,
+    "previous_media_commit": "c84a9e2a1fa8f51a514967ee736341a5ed1bdf33"
   },
   "outputs": [
     {
       "file": "manta-graph-intro-dark.mp4",
-      "bytes": 274889,
-      "sha256": "d2335f58b12ad46f583251624d0a900aa44e5bb48117cda7a91bd4dd90ce2411",
+      "bytes": 354338,
+      "sha256": "5f6b84073c8ff65d633a6a92266b9a1e3462f28165ec6516933aa6baa90f2d8a",
       "programs": [],
       "stream_groups": [],
       "streams": [
         {
+          "profile": "High 4:4:4 Predictive",
           "width": 1600,
           "height": 900,
-          "avg_frame_rate": "60/1"
+          "pix_fmt": "gbrp",
+          "color_range": "pc",
+          "color_space": "gbr",
+          "avg_frame_rate": "60/1",
+          "nb_read_frames": "360"
         }
       ],
       "format": {
         "duration": "6.000000"
-      }
+      },
+      "decoded_background_rgb": [
+        13,
+        17,
+        23
+      ],
+      "background_unique_colors": 1,
+      "background_region": [
+        0,
+        0,
+        1600,
+        20
+      ],
+      "background_frames_checked": 360,
+      "first_last_pixels_equal": false,
+      "first_last_changed_pixels": 8,
+      "first_last_max_channel_delta": 1,
+      "boundary_matches_input": true
     },
     {
       "file": "manta-graph-intro-dark.gif",
-      "bytes": 532061,
-      "sha256": "fb6736ab1352cf36448640c5c9309af134bc016d7c41aed5f2d1118c506fdc9f",
+      "bytes": 137069,
+      "sha256": "2f8ef4384c324308b146e2cc8c414147cc0f7f3537afce68ac1882723a21b22a",
       "programs": [],
       "stream_groups": [],
       "streams": [
         {
           "width": 1200,
           "height": 675,
-          "avg_frame_rate": "25/1"
+          "pix_fmt": "bgra",
+          "avg_frame_rate": "25/1",
+          "nb_read_frames": "150"
         }
       ],
       "format": {
         "duration": "6.000000"
-      }
+      },
+      "decoded_background_rgb": [
+        13,
+        17,
+        23
+      ],
+      "background_unique_colors": 1,
+      "background_region": [
+        0,
+        0,
+        1200,
+        20
+      ],
+      "background_frames_checked": 150,
+      "first_last_pixels_equal": false,
+      "first_last_changed_pixels": 4,
+      "first_last_max_channel_delta": 2,
+      "boundary_matches_input": null
     }
-  ]
+  ],
+  "capture": {
+    "method": "Headless Chromium; original composition; explicit film timeline, DOM, fonts and assets readiness; GSAP seek at n/60",
+    "browser": "HeadlessChrome/131.0.6778.204",
+    "browser_flags": [
+      "--force-color-profile=srgb",
+      "--disable-gpu"
+    ],
+    "capture_date_epoch_ms": 0,
+    "dimensions": [
+      1600,
+      900
+    ],
+    "fps": 60,
+    "frames": 360,
+    "capture_script_sha256": "1805c6a59d6e9abbd70fa9c4fe1f9e603773b56b4c77b6632ccbcbce2d96cfb8",
+    "composition_files_changed": false,
+    "ready_before_first_frame": true,
+    "all_frames_replay_ready": true,
+    "browser_playback_verified": false,
+    "native_recording": false,
+    "replay_states": [
+      {
+        "time": 0.5333333333333333,
+        "shot": "shot-0",
+        "caption": "Start with the note you are reading.",
+        "icons": 8
+      },
+      {
+        "time": 0.5833333333333334,
+        "shot": "shot-1",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 0.6166666666666667,
+        "shot": "shot-2",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 0.6666666666666666,
+        "shot": "shot-3",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 0.7,
+        "shot": "shot-4",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 0.7333333333333333,
+        "shot": "shot-5",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 0.7833333333333333,
+        "shot": "shot-6",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 0.8166666666666667,
+        "shot": "shot-7",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 1.6333333333333333,
+        "shot": "shot-8",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 2.0833333333333335,
+        "shot": "shot-9",
+        "caption": "Open the next note. Keep the context.",
+        "icons": 8
+      },
+      {
+        "time": 2.1333333333333333,
+        "shot": "shot-10",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 2.1666666666666665,
+        "shot": "shot-11",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 2.216666666666667,
+        "shot": "shot-12",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 2.25,
+        "shot": "shot-13",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 2.283333333333333,
+        "shot": "shot-14",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 2.3333333333333335,
+        "shot": "shot-15",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 2.3666666666666667,
+        "shot": "shot-16",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 2.9833333333333334,
+        "shot": "shot-17",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 3.4833333333333334,
+        "shot": "shot-18",
+        "caption": "Step back and follow another connection.",
+        "icons": 8
+      },
+      {
+        "time": 3.533333333333333,
+        "shot": "shot-19",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 3.566666666666667,
+        "shot": "shot-20",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 3.6166666666666667,
+        "shot": "shot-21",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 3.65,
+        "shot": "shot-22",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 3.683333333333333,
+        "shot": "shot-23",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 3.7333333333333334,
+        "shot": "shot-24",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 3.7666666666666666,
+        "shot": "shot-25",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 4.583333333333333,
+        "shot": "shot-26",
+        "caption": "Look one connection further.",
+        "icons": 8
+      },
+      {
+        "time": 5.583333333333333,
+        "shot": "shot-27",
+        "caption": "Switch to an outline when you need the list.",
+        "icons": 13
+      },
+      {
+        "time": 5.983333333333333,
+        "shot": "shot-28",
+        "caption": "Start with the note you are reading.",
+        "icons": 8
+      }
+    ],
+    "receipt_sha256": "0200954cab7b29b46f87f726f6d96c9e8c7ed9dbf3ce536c1ede9b2024d85c82",
+    "capture_clock_scope": "JavaScript Date in the isolated capture page only; original composition and product code unchanged"
+  }
 }
