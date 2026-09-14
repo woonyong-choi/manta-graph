@@ -1,0 +1,48 @@
+{
+  "hyperframes": "0.8.38",
+  "source_sha256": "27ac236cdb9e8f4f5596c8cc55d457f83f3dc79e3c4d86bc601d1f76e0313925",
+  "inputs_sha256": {
+    "index.html": "27ac236cdb9e8f4f5596c8cc55d457f83f3dc79e3c4d86bc601d1f76e0313925",
+    "assets/action.js": "5a5fd1bf50586bada40d54c8da684bc3ad5886c9e087c88abee5a0e072329d43",
+    "assets/gsap.min.js": "c174bfce53a729418d57a8ad8625e7247c793a22fef8e2851e3cfa3de9cd8280",
+    "assets/product.css": "382115130f42ea37b37adcdd8db7ae4a3706bbc991e17ae99d8a342ed595c9e4",
+    "index.motion.json": "d85942ba3f479ef3c1afe2759b7ffe6b0b8ad0bb46fa22c9aa3709e92b667b09",
+    "inputs.json": "7a646ff690f0cbf8c764c730cbaab4ccc90cce1a883af165832e2fc4bf791508"
+  },
+  "outputs": [
+    {
+      "file": "manta-graph-intro.mp4",
+      "bytes": 261579,
+      "sha256": "079415c752d0ef313c4f75bb0d8fccfe46e7cda029f87057eddc67540ed9979b",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1600,
+          "height": 900,
+          "avg_frame_rate": "60/1"
+        }
+      ],
+      "format": {
+        "duration": "6.000000"
+      }
+    },
+    {
+      "file": "manta-graph-intro.gif",
+      "bytes": 609938,
+      "sha256": "f4789e3bec106276de5619080e7128b21ddc8d6990d63c75804e857fcf67cdf0",
+      "programs": [],
+      "stream_groups": [],
+      "streams": [
+        {
+          "width": 1200,
+          "height": 675,
+          "avg_frame_rate": "25/1"
+        }
+      ],
+      "format": {
+        "duration": "6.000000"
+      }
+    }
+  ]
+}

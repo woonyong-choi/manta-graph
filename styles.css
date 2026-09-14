@@ -1,6 +1,7 @@
 /* linked-graph-design-tokens:start */
 .linked-graph-view {
-	--lg-surface: var(--background-primary);
+	/* Shared with the published Wiki code blocks. Other colours follow the host. */
+	--lg-surface: #ffffff;
 	--lg-text: var(--text-normal);
 	--lg-muted: var(--text-muted);
 	--lg-faint: var(--text-faint);
@@ -31,6 +32,12 @@
 	--lg-font-small: var(--font-ui-smaller);
 	--lg-font-normal: var(--font-ui-small);
 	--lg-preview-duration: 120ms;
+}
+.theme-dark .linked-graph-view {
+	--lg-surface: #0d1117;
+}
+@media (forced-colors: active) {
+	.linked-graph-view, .theme-dark .linked-graph-view { --lg-surface: Canvas; }
 }
 /* linked-graph-design-tokens:end */
 

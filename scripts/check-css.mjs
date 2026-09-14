@@ -14,5 +14,6 @@ for (const token of required) {
 }
 
 const tokenBlock = source.slice(0, source.indexOf("/* linked-graph-design-tokens:end */"));
-if (/(?:#[\da-f]{3,8}|rgba?\(|hsla?\()/i.test(tokenBlock)) throw new Error("Design tokens must derive colour from the Obsidian theme.");
+const hostTokenBlock = tokenBlock.replace(/--lg-surface: #(ffffff|0d1117);/g, "");
+if (/(?:#[\da-f]{3,8}|rgba?\(|hsla?\()/i.test(hostTokenBlock)) throw new Error("Only the shared Wiki canvas may own a literal colour.");
 if (!source.includes(":focus-visible")) throw new Error("Keyboard focus styling is required.");

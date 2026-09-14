@@ -1,5 +1,5 @@
 {
-  "version": "1.6.14",
+  "version": "1.6.15",
   "capturedWith": "Obsidian 1.13.7 native app screenshots and GIF sequence; no UI reconstruction",
   "capturedAt": "2026-09-11",
   "publicSafeSample": true,
@@ -25,5 +25,5 @@
   ],
   "sourceCommit": "4dbde8e84d9882ef3e305fbd46acf3bacc4415f1",
   "capturedVersion": "1.6.12",
-  "reuseReason": "Branding-only release. Captures retain the earlier name and capturedVersion; behavior and layout are unchanged."
+  "reuseReason": "Preserve the earlier public runtime capture as a historical reference. New light/dark six-second introductions use the production view with public sample data; their separate receipts record renderer provenance. This release changes canvas colors and documentation, not navigation or execution behavior."
 }

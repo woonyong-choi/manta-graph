@@ -18,6 +18,14 @@ Manta Graph remains a read-only, current-note navigator over authored Markdown l
 - Expand screen-reader and third-party-theme coverage.
 - Publish additional reproducible large-note measurements across desktop and mobile devices.
 
+## Next: reading paths and stable focus
+
+Keep actual link targets and authored order intact when a file moves or changes. Improve focus restoration, dense neighborhoods and the Graph/Outline transition. A planned external AI tool should return only the requested existing links and source locations; it must not add a remote AI service to the plugin or invent relationships.
+
+Align type sizes, spacing, neutral surfaces, keyboard focus and status wording with the other Manta tools. Keep this plugin useful on its own. Measure first-use completion, manual corrections, recovery and repeat use against the same public inputs before claiming an improvement. These are planned changes.
+
+[Shared product direction and release criteria](https://github.com/woonyong-choi/manta-diagrams/blob/main/docs/product-direction.md)
+
 ## Out of scope
 
 - Vault-wide global graph replacement, backlinks, or relationship editing.

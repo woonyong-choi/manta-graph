@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.15
+
+- Match the published Wiki canvas in light and dark mode, preserving system colors in forced-colors mode.
+- Add six-second, automatically repeating introductions for both themes and link the four Manta plugins.
+
 ## 1.6.14
 
 - Rename the plugin to Manta Graph and update its repository links.
