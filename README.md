@@ -10,7 +10,7 @@ Version: **1.6.14** · Obsidian **1.8.0+** · Desktop and mobile. See [release n
 
 ## Install and try
 
-1. In **Settings → Community plugins → Browse**, find **Manta Graph**, then install and enable it.
+1. Open the [existing Community entry](https://community.obsidian.md/plugins/linked-graph) in Obsidian, then install and enable it. The entry may still show its previous name while the directory updates.
 2. Create notes named `Lesson` and `Practice`. Link to them in a third note:
 
 ```markdown
