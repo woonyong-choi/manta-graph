@@ -1,4 +1,4 @@
-# Linked Graph Navigator demo
+# Manta Graph demo
 
 Public-safe 16:9 source captures and the deterministic GIF recipe belong to this plugin repository. Generated output stays ignored; verified release media remains under `docs/assets/`.
 

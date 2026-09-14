@@ -7,7 +7,7 @@ body:
     id: versions
     attributes:
       label: Versions
-      description: Linked Graph Navigator, Obsidian, operating system, and theme versions.
+      description: Manta Graph, Obsidian, operating system, and theme versions.
     validations:
       required: true
   - type: textarea

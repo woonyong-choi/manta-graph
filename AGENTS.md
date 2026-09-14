@@ -1,6 +1,6 @@
-# Linked Graph repository guide
+# Manta Graph repository guide
 
-Linked Graph is a local-first Obsidian Community Plugin. Canonical Markdown is the only knowledge source of truth; the plugin is a read-only current-note navigator.
+Manta Graph is a local-first Obsidian Community Plugin. Canonical Markdown is the only knowledge source of truth; the plugin is a read-only current-note navigator.
 
 ## Working agreement
 

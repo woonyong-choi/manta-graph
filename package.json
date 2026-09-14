@@ -1,6 +1,6 @@
 {
 	"name": "linked-graph",
-	"version": "1.6.13",
+	"version": "1.6.14",
 	"description": "Follow the links you wrote in order as a focused outline or graph beside the active note.",
 	"main": "main.js",
 	"type": "module",
@@ -37,12 +37,12 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/woonyong-choi/obsidian-linked-graph-navigator.git"
+		"url": "git+https://github.com/woonyong-choi/manta-graph.git"
 	},
 	"bugs": {
-		"url": "https://github.com/woonyong-choi/obsidian-linked-graph-navigator/issues"
+		"url": "https://github.com/woonyong-choi/manta-graph/issues"
 	},
-	"homepage": "https://github.com/woonyong-choi/obsidian-linked-graph-navigator#readme",
+	"homepage": "https://github.com/woonyong-choi/manta-graph#readme",
 	"engines": {
 		"node": ">=20"
 	},

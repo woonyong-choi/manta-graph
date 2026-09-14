@@ -1,10 +1,10 @@
-# Linked Graph Navigator user guide
+# Manta Graph user guide
 
 [Back to the overview](../README.md)
 
 ## Quick start: build a two-link reading path
 
-1. Open **Settings → Community plugins → Browse**, search for **Linked Graph Navigator**, then **Install** and **Enable**.
+1. Open **Settings → Community plugins → Browse**, search for **Manta Graph**, then **Install** and **Enable**.
 2. Create two normal notes named `Lesson` and `Practice`. Write any sentence in each so both files exist.
 3. Create a third note named `Learning map` and paste:
 
@@ -16,7 +16,7 @@
 - [[Practice]]
 ```
 
-4. Keep `Learning map` active. Run **Open Linked Graph Navigator for the current note** from the command palette, or select the plugin's ribbon icon.
+4. Keep `Learning map` active. Run **Open Manta Graph for the current note** from the command palette, or select the plugin's ribbon icon.
 5. You should see **Learning map** connected to **Lesson** and **Practice**. Switch to **Outline** to see Lesson before Practice under **Start here**. Select a route to open its note.
 
 Uncreated `[[links]]` do not become routes: create their target notes first. No account, network connection, or required settings are involved.
@@ -50,7 +50,7 @@ The graph is for spatial scanning and direct manipulation:
 - a completed drag becomes the node's position for this session, while cancel or focus loss restores the previous position;
 - node colours use existing canonical metadata only; titles never infer type.
 
-![Linked Graph Navigator showing the next route while Collections has keyboard focus in Obsidian](assets/linked-graph-runtime-preview.png)
+![Manta Graph showing the next route while Collections has keyboard focus in Obsidian](assets/linked-graph-runtime-preview.png)
 
 These screenshots use plugin 1.6.12 in a public sample Vault in Obsidian 1.13.7 (September 11, 2026). Saved display preferences are explained below.
 
@@ -78,9 +78,9 @@ An empty navigator reports excluded and unresolved links separately, so you can 
 
 ## Why not the built-in Graph view?
 
-The built-in Graph view answers “how is this network connected?” Linked Graph Navigator answers “where did I intend the reader to go next?”
+The built-in Graph view answers “how is this network connected?” Manta Graph answers “where did I intend the reader to go next?”
 
-| | Linked Graph Navigator | Obsidian Graph |
+| | Manta Graph | Obsidian Graph |
 | --- | --- | --- |
 | Scope | Active note | Vault or local neighbourhood |
 | Direction | Outgoing links in written order | Connections in multiple directions |
@@ -89,7 +89,7 @@ The built-in Graph view answers “how is this network connected?” Linked Grap
 | Primary action | Follow an intended reading path | Inspect connections |
 | Knowledge writes | None | None |
 
-The two views complement each other: use Graph for exploration and Linked Graph Navigator for deliberate reading paths.
+The two views complement each other: use Graph for exploration and Manta Graph for deliberate reading paths.
 
 ## Supported Markdown
 
@@ -121,7 +121,7 @@ These are visual safeguards, not data loss: the source Markdown remains canonica
 
 ## Privacy and ownership
 
-Linked Graph Navigator is local-first and read-only:
+Manta Graph is local-first and read-only:
 
 - it makes no network requests and includes no telemetry;
 - it never creates, edits, renames, or deletes notes;
@@ -142,6 +142,6 @@ See the detailed [UX contract](ux-contract.md), [design system](design-system.md
 
 ## Installation and compatibility
 
-Install from **Settings → Community plugins → Browse → Linked Graph Navigator**. Version 1.6.11 fixes the route-search command so it reveals and focuses the search field. Current release **1.6.13** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
+Install from **Settings → Community plugins → Browse → Manta Graph**. Version 1.6.11 fixes the route-search command so it reveals and focuses the search field. Current release **1.6.13** supports Obsidian **1.8.0+** on desktop and mobile. Both use the same local, offline navigator; no account or server is needed.
 
-For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-choi/obsidian-linked-graph-navigator/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.
+For a manual release install, download `main.js`, `manifest.json`, and `styles.css` from the [latest release](https://github.com/woonyong-choi/manta-graph/releases/latest) into `.obsidian/plugins/linked-graph/`, then reload Obsidian.

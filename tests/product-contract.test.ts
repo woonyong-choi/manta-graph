@@ -18,6 +18,6 @@ test("runtime is a read-only projection with no second knowledge store", async (
 test("manifest exposes the renamed product and no desktop-only dependency", async () => {
 	const manifest = JSON.parse(await readFile(new URL("manifest.json", repository), "utf8")) as Record<string, unknown>;
 	assert.equal(manifest.id, "linked-graph");
-	assert.equal(manifest.name, "Linked Graph Navigator");
+	assert.equal(manifest.name, "Manta Graph");
 	assert.equal(manifest.isDesktopOnly, false);
 });

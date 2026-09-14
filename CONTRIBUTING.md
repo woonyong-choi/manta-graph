@@ -1,6 +1,6 @@
-# Contributing to Linked Graph Navigator
+# Contributing to Manta Graph
 
-Linked Graph Navigator is a read-only projection over canonical Markdown.
+Manta Graph is a read-only projection over canonical Markdown.
 
 ## Before opening a pull request
 

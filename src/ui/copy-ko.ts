@@ -1,6 +1,6 @@
 export const COPY_KO = {
 	settings: { mode: "표시 모드", excludedFolders: "제외 폴더", excludedFoldersDesc: "한 줄에 폴더 하나. 이름은 모든 경로 구간에, 경로는 Vault 루트부터 적용됩니다. 비우면 일반 폴더를 포함합니다. 숨김 내부 루트는 계속 제외됩니다.", excludedStatuses: "제외 상태", excludedStatusesDesc: "한 줄에 값 하나. status, lifecycle, lifecycle_status에 적용합니다. 설정만 저장하며 노트는 변경하지 않습니다." },
-	view: { title: "Linked Graph Navigator", openRibbon: "현재 문서를 Linked Graph Navigator로 보기", openCommand: "현재 문서의 Linked Graph Navigator 열기", refreshCommand: "Linked Graph Navigator 새로고침", focusSearchCommand: "경로 검색으로 이동", backCommand: "이 세션에서 뒤로 이동", forwardCommand: "이 세션에서 앞으로 이동" },
+	view: { title: "Manta Graph", openRibbon: "현재 문서를 Manta Graph로 보기", openCommand: "현재 문서의 Manta Graph 열기", refreshCommand: "Manta Graph 새로고침", focusSearchCommand: "경로 검색으로 이동", backCommand: "이 세션에서 뒤로 이동", forwardCommand: "이 세션에서 앞으로 이동" },
 	actions: {
 		search: "현재 링크 검색",
 		back: "뒤로",

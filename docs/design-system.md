@@ -1,4 +1,4 @@
-# Linked Graph Navigator design system
+# Manta Graph design system
 
 ## Principles
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6.14
+
+- Rename the plugin to Manta Graph and update its repository links.
+- Preserve the plugin ID, settings, commands, data formats, and all previous releases.
+
 ## 1.6.13
 
 - Keep a valid parent note reachable from empty graph and Outline views, including notes whose outgoing links are all excluded or unresolved.

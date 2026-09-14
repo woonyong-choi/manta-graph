@@ -3,8 +3,8 @@ import process from 'process';
 import { builtinModules } from 'node:module';
 
 const banner = `/*
-Linked Graph production bundle.
-Source: https://github.com/woonyong-choi/obsidian-linked-graph-navigator
+Manta Graph production bundle.
+Source: https://github.com/woonyong-choi/manta-graph
 */
 `;
 

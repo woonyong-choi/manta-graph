@@ -1,6 +1,6 @@
 # Roadmap
 
-Linked Graph Navigator remains a read-only, current-note navigator over authored Markdown links. It will not become a Vault-wide graph or relationship database.
+Manta Graph remains a read-only, current-note navigator over authored Markdown links. It will not become a Vault-wide graph or relationship database.
 
 ## Available
 
@@ -24,4 +24,4 @@ Linked Graph Navigator remains a read-only, current-note navigator over authored
 - A second relationship store, automatic link generation, or saved graph layouts.
 - Remote AI, telemetry, accounts, or network services.
 
-Use [Issues](https://github.com/woonyong-choi/obsidian-linked-graph-navigator/issues/new/choose) for reproducible bugs and use cases. Broader questions belong in [Discussions](https://github.com/woonyong-choi/obsidian-linked-graph-navigator/discussions).
+Use [Issues](https://github.com/woonyong-choi/manta-graph/issues/new/choose) for reproducible bugs and use cases. Broader questions belong in [Discussions](https://github.com/woonyong-choi/manta-graph/discussions).
