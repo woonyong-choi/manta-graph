@@ -20,6 +20,16 @@ const fail = (message) => {
 	throw new Error(`release media contract: ${message}`);
 };
 
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+// README may name an asset by its repository-relative path or by the GitHub raw URL
+// that also renders outside GitHub (plugin directory, npm). Both point at the same
+// file, and existence is always checked against the relative path below.
+const embedsAsset = (path) => {
+	const rawPrefix = String.raw`https://raw\.githubusercontent\.com/[^/\s)]+/[^/\s)]+/main/`;
+	return new RegExp(String.raw`\]\((?:${rawPrefix})?${escapeRegExp(path)}\)`).test(readme);
+};
+
 const imageDimensions = (bytes, path) => {
 	if (bytes.subarray(0, 8).toString("hex") === "89504e470d0a1a0a") {
 		return { width: bytes.readUInt32BE(16), height: bytes.readUInt32BE(20) };
@@ -45,7 +55,7 @@ if (records.size !== requiredAssets.length) fail("capture record must contain ex
 for (const path of requiredAssets) {
 	const record = records.get(path);
 	if (!record) fail(`missing record for ${path}`);
-	if (path.endsWith(".gif") && !readme.includes(`](${path})`)) fail(`README does not embed ${path}`);
+	if (path.endsWith(".gif") && !embedsAsset(path)) fail(`README does not embed ${path}`);
 
 	const bytes = await readFile(new URL(path, repository));
 	const { width, height } = imageDimensions(bytes, path);
