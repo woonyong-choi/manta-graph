@@ -1,4 +1,4 @@
-<img src="docs/assets/product-icon.svg" alt="" width="48" height="48" />
+<img src="https://raw.githubusercontent.com/woonyong-choi/manta-graph/main/docs/assets/product-icon.svg" alt="" width="48" height="48" />
 
 # Manta Graph
 
@@ -9,8 +9,8 @@ Follow your notes in the order you wrote them.
 Version: **1.6.15** · Obsidian **1.8.0+** · Desktop and mobile. See [release notes](CHANGELOG.md) for shipped changes and the [roadmap](ROADMAP.md) for work in progress and plans.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/assets/manta-graph-intro-dark.gif">
-  <img src="docs/assets/manta-graph-intro.gif" alt="Manta Graph: preview connections, open a note and return to the outline" width="1200">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/woonyong-choi/manta-graph/main/docs/assets/manta-graph-intro-dark.gif">
+  <img src="https://raw.githubusercontent.com/woonyong-choi/manta-graph/main/docs/assets/manta-graph-intro.gif" alt="Manta Graph: preview connections, open a note and return to the outline" width="1200">
 </picture>
 
 A six-second loop of the current view using sample notes. Timing is condensed. This is a view fixture; the original Obsidian capture is below.
@@ -34,7 +34,7 @@ Manual installation: download the three plugin files from [Releases](https://git
 <details>
 <summary>Original runtime capture and recorded version</summary>
 
-![Manta Graph walkthrough](docs/assets/linked-graph-demo.gif)
+![Manta Graph walkthrough](https://raw.githubusercontent.com/woonyong-choi/manta-graph/main/docs/assets/linked-graph-demo.gif)
 
 Obsidian desktop capture, September 11, 2026 (1.6.12), using public sample notes. The capture predates the Manta name.
 
