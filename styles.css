@@ -1,16 +1,170 @@
 /* linked-graph-design-tokens:start */
+/* tokens:begin — manta-tokens 가 생성한다. 직접 고치지 말 것. */
+/* manta-tokens — scripts/build.mjs 가 tokens.json 에서 생성한다. 직접 고치지 말 것. */
+
+:root,
+.manta-tokens {
+  --manta-bg: var(--background-primary, #ffffff);
+  --manta-surface: var(--background-secondary, #f4f6f8);
+  --manta-surface-raised: var(--background-secondary-alt, #eceff3);
+  --manta-border: var(--background-modifier-border, #c9cfd6);
+  --manta-border-strong: var(--background-modifier-border-hover, #8a929d);
+  --manta-divider: var(--divider-color, #e3e6ea);
+  --manta-text: var(--text-normal, #1f2328);
+  --manta-text-muted: var(--text-muted, #4b5563);
+  --manta-text-faint: var(--text-faint, #8a929d);
+  --manta-accent: var(--interactive-accent, #2b96ed);
+  --manta-accent-text: var(--text-on-accent, #ffffff);
+  --manta-key-bg: #1f2328;
+  --manta-key-text: #ffffff;
+  --manta-out-bg: #eaf3fc;
+  --manta-out-border: #9cc3e6;
+  --manta-series-1: #42764c;
+  --manta-series-2: #356eaa;
+  --manta-series-3: #896a28;
+  --manta-series-4: #81558d;
+  --manta-error: var(--text-error, #b42318);
+  --manta-warning: var(--text-warning, #b7791f);
+  --manta-success: var(--text-success, #176b35);
+
+  --manta-radius-xs: 3px;
+  --manta-radius-sm: var(--radius-s, 5px);
+  --manta-radius-md: var(--radius-m, 8px);
+  --manta-space-1: var(--size-4-1, 4px);
+  --manta-space-2: var(--size-4-2, 8px);
+  --manta-space-3: var(--size-4-3, 12px);
+  --manta-space-4: var(--size-4-4, 16px);
+  --manta-line-thin: 1px;
+  --manta-line-base: 1.2px;
+  --manta-font-sans: var(--font-text, "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif);
+  --manta-font-ui: var(--font-interface, "Pretendard Variable", Pretendard, "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif);
+  --manta-font-mono: var(--font-monospace, "JetBrains Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace);
+  --manta-size-xs: var(--font-ui-smaller, 11px);
+  --manta-size-sm: var(--font-ui-small, 12px);
+  --manta-size-md: var(--font-ui-medium, 13px);
+  --manta-size-lg: var(--font-ui-large, 15px);
+  --manta-size-xl: 18px;
+  --manta-control-height: var(--input-height, 30px);
+  --manta-control-focus-width: var(--focus-ring-width, 2px);
+  --manta-control-icon: var(--icon-size, 16px);
+}
+
+/* 다크: Obsidian 은 .theme-dark, 그 밖의 호스트는 prefers-color-scheme 으로 뒤집는다. */
+.theme-dark,
+[data-theme="dark"] {
+  --manta-bg: var(--background-primary, #0d1117);
+  --manta-surface: var(--background-secondary, #161b22);
+  --manta-surface-raised: var(--background-secondary-alt, #1c2430);
+  --manta-border: var(--background-modifier-border, #3d4754);
+  --manta-border-strong: var(--background-modifier-border-hover, #738091);
+  --manta-divider: var(--divider-color, #2a323d);
+  --manta-text: var(--text-normal, #e6edf3);
+  --manta-text-muted: var(--text-muted, #a4afbc);
+  --manta-text-faint: var(--text-faint, #738091);
+  --manta-accent: var(--interactive-accent, #79c0ff);
+  --manta-accent-text: var(--text-on-accent, #0d1117);
+  --manta-key-bg: #e6edf3;
+  --manta-key-text: #0d1117;
+  --manta-out-bg: #17293b;
+  --manta-out-border: #3b6ea5;
+  --manta-series-1: #9dc9a4;
+  --manta-series-2: #9cbfdf;
+  --manta-series-3: #dfc38a;
+  --manta-series-4: #c9a5d0;
+  --manta-error: var(--text-error, #ff7b72);
+  --manta-warning: var(--text-warning, #d29922);
+  --manta-success: var(--text-success, #3fb950);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.theme-light):not([data-theme="light"]) {
+    --manta-bg: var(--background-primary, #0d1117);
+    --manta-surface: var(--background-secondary, #161b22);
+    --manta-surface-raised: var(--background-secondary-alt, #1c2430);
+    --manta-border: var(--background-modifier-border, #3d4754);
+    --manta-border-strong: var(--background-modifier-border-hover, #738091);
+    --manta-divider: var(--divider-color, #2a323d);
+    --manta-text: var(--text-normal, #e6edf3);
+    --manta-text-muted: var(--text-muted, #a4afbc);
+    --manta-text-faint: var(--text-faint, #738091);
+    --manta-accent: var(--interactive-accent, #79c0ff);
+    --manta-accent-text: var(--text-on-accent, #0d1117);
+    --manta-key-bg: #e6edf3;
+    --manta-key-text: #0d1117;
+    --manta-out-bg: #17293b;
+    --manta-out-border: #3b6ea5;
+    --manta-series-1: #9dc9a4;
+    --manta-series-2: #9cbfdf;
+    --manta-series-3: #dfc38a;
+    --manta-series-4: #c9a5d0;
+    --manta-error: var(--text-error, #ff7b72);
+    --manta-warning: var(--text-warning, #d29922);
+    --manta-success: var(--text-success, #3fb950);
+}
+}
+
+/* 라이트를 고정한 호스트(인쇄·이력서 PDF)는 명시 선택자로 되돌린다. */
+.theme-light,
+[data-theme="light"] {
+  --manta-bg: var(--background-primary, #ffffff);
+  --manta-surface: var(--background-secondary, #f4f6f8);
+  --manta-surface-raised: var(--background-secondary-alt, #eceff3);
+  --manta-border: var(--background-modifier-border, #c9cfd6);
+  --manta-border-strong: var(--background-modifier-border-hover, #8a929d);
+  --manta-divider: var(--divider-color, #e3e6ea);
+  --manta-text: var(--text-normal, #1f2328);
+  --manta-text-muted: var(--text-muted, #4b5563);
+  --manta-text-faint: var(--text-faint, #8a929d);
+  --manta-accent: var(--interactive-accent, #2b96ed);
+  --manta-accent-text: var(--text-on-accent, #ffffff);
+  --manta-key-bg: #1f2328;
+  --manta-key-text: #ffffff;
+  --manta-out-bg: #eaf3fc;
+  --manta-out-border: #9cc3e6;
+  --manta-series-1: #42764c;
+  --manta-series-2: #356eaa;
+  --manta-series-3: #896a28;
+  --manta-series-4: #81558d;
+  --manta-error: var(--text-error, #b42318);
+  --manta-warning: var(--text-warning, #b7791f);
+  --manta-success: var(--text-success, #176b35);
+}
+
+@media (forced-colors: active) {
+  :root,
+  .manta-tokens {
+  --manta-bg: Canvas;
+  --manta-surface: Canvas;
+  --manta-text: CanvasText;
+  --manta-border: CanvasText;
+  --manta-border-strong: CanvasText;
+}
+}
+
+/* lg-* 는 manta 토큰의 별칭이다. 새 규칙은 --manta-* 를 직접 쓴다. */
+:root,
 .linked-graph-view {
-	/* Shared with the published Wiki code blocks. Other colours follow the host. */
-	--lg-surface: #ffffff;
-	--lg-text: var(--text-normal);
-	--lg-muted: var(--text-muted);
-	--lg-faint: var(--text-faint);
-	--lg-border: var(--divider-color, var(--background-modifier-border));
-	--lg-hover: var(--background-modifier-hover);
-	--lg-accent: var(--link-color);
-	--lg-focus: var(--background-modifier-border-focus);
-	--lg-graph-line: var(--graph-line, var(--color-base-35, var(--background-modifier-border-focus)));
-	--lg-graph-text: var(--graph-text, var(--text-normal));
+  --lg-surface: var(--manta-bg);
+  --lg-text: var(--manta-text);
+  --lg-muted: var(--manta-text-muted);
+  --lg-faint: var(--manta-text-faint);
+  --lg-border: var(--manta-border);
+  --lg-hover: var(--manta-surface);
+  --lg-accent: var(--manta-accent);
+  --lg-focus: var(--manta-accent);
+  --lg-graph-line: var(--manta-border);
+  --lg-graph-text: var(--manta-text);
+  --lg-space-1: var(--manta-space-1);
+  --lg-space-2: var(--manta-space-2);
+  --lg-space-3: var(--manta-space-3);
+  --lg-space-4: var(--manta-space-4);
+  --lg-font-small: var(--manta-size-xs);
+  --lg-font-normal: var(--manta-size-sm);
+}
+/* tokens:end */
+
+/* manta-tokens 에 대응이 없는 값만 이 저장소가 소유한다. */
+.linked-graph-view {
 	--lg-kind-hub: var(--color-cyan, var(--interactive-accent));
 	--lg-kind-project: var(--color-blue, var(--link-color));
 	--lg-kind-person: var(--color-pink, var(--color-red));
@@ -21,23 +175,33 @@
 	--lg-kind-topic: var(--color-green, var(--interactive-accent));
 	--lg-kind-detail: var(--color-green, var(--interactive-accent));
 	--lg-kind-unknown: var(--graph-node, var(--text-muted));
-	--lg-space-1: 4px;
-	--lg-space-2: 8px;
-	--lg-space-3: 12px;
-	--lg-space-4: 16px;
 	--lg-space-5: 20px;
 	--lg-space-6: 24px;
 	--lg-row-height: 44px;
-	--lg-icon-size: 16px;
-	--lg-font-small: var(--font-ui-smaller);
-	--lg-font-normal: var(--font-ui-small);
+	--lg-icon-size: var(--manta-space-4);
 	--lg-preview-duration: 120ms;
-}
-.theme-dark .linked-graph-view {
-	--lg-surface: #0d1117;
+	/* 레이아웃 치수. 토큰 척도가 아니라 이 화면의 고유 값이다. */
+	--lg-header-height: 64px;
+	--lg-header-height-narrow: 82px;
+	--lg-network-height: 420px;
+	--lg-node-width: 190px;
+	--lg-node-height: 32px;
+	--lg-node-height-sm: 30px;
+	--lg-root-label-width: 174px;
+	--lg-node-label-width: 158px;
+	--lg-dot-size: 10px;
+	--lg-dot-ring: 3px;
+	--lg-node-dot-size: 8px;
+	--lg-hidden-size: 1px;
+	--lg-preview-width: 132px;
+	--lg-preview-height: 24px;
+	--lg-preview-label-width: 108px;
+	--lg-preview-dot-size: 6px;
+	--lg-preview-gap: 3px;
+	--lg-preview-pad: 6px;
 }
 @media (forced-colors: active) {
-	.linked-graph-view, .theme-dark .linked-graph-view { --lg-surface: Canvas; }
+	.linked-graph-view { --lg-surface: Canvas; }
 }
 /* linked-graph-design-tokens:end */
 
@@ -58,9 +222,9 @@
 	align-items: flex-end;
 	justify-content: space-between;
 	gap: var(--lg-space-4);
-	min-height: 64px;
+	min-height: var(--lg-header-height);
 	padding: var(--lg-space-3) var(--lg-space-4);
-	border-bottom: 1px solid var(--lg-border);
+	border-bottom: var(--manta-line-thin) solid var(--lg-border);
 }
 
 .linked-graph-heading {
@@ -101,7 +265,7 @@
 	margin: 0;
 	padding: 0 var(--lg-space-2);
 	border: 0;
-	border-radius: var(--radius-s);
+	border-radius: var(--manta-radius-sm);
 	color: var(--lg-text);
 	background: transparent;
 	box-shadow: none;
@@ -149,7 +313,7 @@
 	min-height: var(--input-height);
 	margin: var(--lg-space-3) var(--lg-space-6) 0;
 	padding: 0 var(--lg-space-3);
-	border-bottom: 1px solid var(--lg-border);
+	border-bottom: var(--manta-line-thin) solid var(--lg-border);
 }
 
 .linked-graph-view.is-searching .linked-graph-search {
@@ -194,7 +358,7 @@
 	min-height: var(--lg-row-height);
 	margin: 0;
 	border: 0;
-	border-bottom: 1px solid color-mix(in srgb, var(--lg-border) 78%, transparent);
+	border-bottom: var(--manta-line-thin) solid color-mix(in srgb, var(--lg-border) 78%, transparent);
 	border-radius: 0;
 	background: transparent;
 	box-shadow: none;
@@ -236,7 +400,7 @@
 .linked-graph-children {
 	margin-left: var(--lg-space-6);
 	padding-left: var(--lg-space-4);
-	border-left: 1px solid var(--lg-border);
+	border-left: var(--manta-line-thin) solid var(--lg-border);
 }
 
 .linked-graph-link-row {
@@ -249,7 +413,7 @@
 	position: absolute;
 	left: calc(-1 * var(--lg-space-4));
 	width: var(--lg-space-4);
-	border-top: 1px solid var(--lg-border);
+	border-top: var(--manta-line-thin) solid var(--lg-border);
 	content: "";
 }
 
@@ -310,7 +474,7 @@
 .linked-graph-mode:focus-visible,
 .linked-graph-group:focus-visible,
 .linked-graph-link:focus-visible {
-	outline: 2px solid var(--lg-focus);
+	outline: var(--manta-control-focus-width) solid var(--lg-focus);
 	outline-offset: -2px;
 }
 
@@ -325,7 +489,7 @@
 	position: relative;
 	width: 100%;
 	height: 100%;
-	min-height: 420px;
+	min-height: var(--lg-network-height);
 	overflow: hidden;
 	touch-action: none;
 	cursor: grab;
@@ -348,8 +512,8 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 1px;
-	height: 1px;
+	width: var(--lg-hidden-size);
+	height: var(--lg-hidden-size);
 	overflow: visible;
 	pointer-events: none;
 }
@@ -387,12 +551,12 @@
 	align-items: center;
 	gap: var(--lg-space-1);
 	width: max-content;
-	max-width: 190px;
-	min-height: 32px;
+	max-width: var(--lg-node-width);
+	min-height: var(--lg-node-height);
 	margin: 0;
 	padding: 0 var(--lg-space-1);
 	border: 0;
-	border-radius: var(--radius-s);
+	border-radius: var(--manta-radius-sm);
 	transform: translate(-50%, -50%);
 	color: var(--lg-text);
 	background: transparent;
@@ -415,9 +579,9 @@
 
 .linked-graph-network-root-dot {
 	flex: 0 0 auto;
-	width: 10px;
-	height: 10px;
-	border: 2px solid color-mix(in srgb, var(--lg-node-color) 40%, var(--lg-surface));
+	width: var(--lg-dot-size);
+	height: var(--lg-dot-size);
+	border: var(--manta-control-focus-width) solid color-mix(in srgb, var(--lg-node-color) 40%, var(--lg-surface));
 	border-radius: 50%;
 	background: var(--lg-node-color);
 }
@@ -434,7 +598,7 @@
 
 .linked-graph-network-root-label {
 	display: block;
-	max-width: 174px;
+	max-width: var(--lg-root-label-width);
 	text-align: center;
 }
 
@@ -451,10 +615,10 @@
 	align-items: center;
 	gap: var(--lg-space-1);
 	width: max-content;
-	max-width: 190px;
-	min-height: 30px;
+	max-width: var(--lg-node-width);
+	min-height: var(--lg-node-height-sm);
 	margin: 0;
-	padding: 12px calc(12px + var(--lg-space-1));
+	padding: var(--lg-space-3) calc(var(--lg-space-3) + var(--lg-space-1));
 	border: 0;
 	border-radius: 0;
 	color: var(--lg-text);
@@ -491,8 +655,8 @@
 
 .linked-graph-network-node-dot {
 	flex: 0 0 auto;
-	width: 8px;
-	height: 8px;
+	width: var(--lg-node-dot-size);
+	height: var(--lg-node-dot-size);
 	border-radius: 50%;
 	background: var(--lg-node-color);
 	transition: box-shadow var(--anim-duration-fast) var(--anim-motion-smooth), transform var(--anim-duration-fast) var(--anim-motion-smooth);
@@ -503,15 +667,15 @@
 .linked-graph-network-node:hover .linked-graph-network-node-dot,
 .linked-graph-network-node:focus-visible .linked-graph-network-node-dot,
 .linked-graph-network-node.is-preview-source .linked-graph-network-node-dot {
-	box-shadow: 0 0 0 3px color-mix(in srgb, var(--lg-node-color) 22%, transparent);
+	box-shadow: 0 0 0 var(--lg-dot-ring) color-mix(in srgb, var(--lg-node-color) 22%, transparent);
 	transform: scale(1.18);
 }
 
 .linked-graph-network-overflow {
 	position: absolute;
 	z-index: 3;
-	border: 1px solid var(--lg-border);
-	border-radius: var(--radius-s);
+	border: var(--manta-line-thin) solid var(--lg-border);
+	border-radius: var(--manta-radius-sm);
 	color: var(--lg-muted);
 	background: color-mix(in srgb, var(--lg-surface) 92%, transparent);
 	font-size: var(--lg-font-small);
@@ -520,8 +684,8 @@
 
 .linked-graph-preview-status {
 	position: absolute;
-	width: 1px;
-	height: 1px;
+	width: var(--lg-hidden-size);
+	height: var(--lg-hidden-size);
 	margin: -1px;
 	padding: 0;
 	overflow: hidden;
@@ -542,10 +706,10 @@
 
 .linked-graph-network-overflow button {
 	flex: 0 0 auto;
-	min-height: 30px;
+	min-height: var(--lg-node-height-sm);
 	padding: 0 var(--lg-space-2);
 	border: 0;
-	border-radius: var(--radius-s);
+	border-radius: var(--manta-radius-sm);
 	color: var(--lg-accent);
 	background: transparent;
 	box-shadow: none;
@@ -560,7 +724,7 @@
 
 .linked-graph-network-node-label {
 	display: block;
-	max-width: 158px;
+	max-width: var(--lg-node-label-width);
 	text-align: center;
 }
 
@@ -572,11 +736,11 @@
 	display: inline-flex;
 	flex-direction: column;
 	align-items: center;
-	gap: 3px;
+	gap: var(--lg-preview-gap);
 	width: max-content;
-	max-width: 132px;
-	min-height: 24px;
-	padding: 0 6px;
+	max-width: var(--lg-preview-width);
+	min-height: var(--lg-preview-height);
+	padding: 0 var(--lg-preview-pad);
 	color: var(--lg-text);
 	font-size: var(--lg-font-small);
 	font-weight: var(--font-medium);
@@ -598,13 +762,13 @@
 }
 
 .linked-graph-network-preview-node .linked-graph-network-node-dot {
-	width: 6px;
-	height: 6px;
+	width: var(--lg-preview-dot-size);
+	height: var(--lg-preview-dot-size);
 	opacity: 0.62;
 }
 
 .linked-graph-network-preview-node .linked-graph-network-node-label {
-	max-width: 108px;
+	max-width: var(--lg-preview-label-width);
 	opacity: 1;
 }
 
@@ -690,7 +854,7 @@
 @container (max-width: 420px) {
 	.linked-graph-header {
 		align-items: flex-start;
-		min-height: 82px;
+		min-height: var(--lg-header-height-narrow);
 		padding: var(--lg-space-4);
 	}
 
@@ -722,7 +886,7 @@
 	}
 
 	.linked-graph-network {
-		min-height: 420px;
+		min-height: var(--lg-network-height);
 	}
 }
 
