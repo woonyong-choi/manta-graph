@@ -2,7 +2,11 @@
 
 # Manta Graph
 
-Follow your notes in the order you wrote them.
+Manta Graph is an Obsidian Community plugin that reads the current note's outgoing links and presents them as an ordered outline or a one-hop graph.
+
+- It reads one active note and its direct links; it does not build a Vault-wide graph or infer backlinks.
+- Markdown and Canvas files are never changed. Only normalized display preferences are saved; graph positions, previews, search, and navigation history stay in the session.
+- Version 1.6.15 supports desktop and mobile. The automated suite covers parsing, ordering, navigation, settings, and the large-note budget; release checks still require a loaded-plugin smoke test.
 
 **[Install in Obsidian](https://community.obsidian.md/plugins/linked-graph) · [Try the demo Vault](https://github.com/woonyong-choi/obsidian-navigator-demo-vault/releases/latest) · [User guide](docs/user-guide.md)**
 
@@ -42,9 +46,7 @@ Obsidian desktop capture, September 11, 2026 (1.6.12), using public sample notes
 
 ## Part of the Manta family
 
-Follow the supporting notes around a diagram, an experiment and a dated review. [Manta Diagrams](https://github.com/woonyong-choi/manta-diagrams), [Manta Code Blocks](https://github.com/woonyong-choi/manta-code-blocks), [Manta Calendar](https://github.com/woonyong-choi/manta-calendar) each work on their own. Ordinary notes and links connect the work today; automatic handoffs are planned.
-
-**Manta itself is in development and has not been released.** I’m building it to turn source material into a personal wiki you can keep adding to. Shared AI tools and the full wiki workflow are still in development.
+The plugins work independently and share ordinary Markdown and links: [Manta Diagrams](https://github.com/woonyong-choi/manta-diagrams), [Manta Code Blocks](https://github.com/woonyong-choi/manta-code-blocks), and [Manta Calendar](https://github.com/woonyong-choi/manta-calendar).
 
 ## Help and development
 
